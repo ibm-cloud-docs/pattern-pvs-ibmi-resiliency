@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-08-06"
+lastupdated: "2024-10-09"
 
 subcollection: pattern-pvs-ibmi-resiliency
 
@@ -30,12 +30,12 @@ content-type: reference-architecture
 
 This is a baseline solution pattern containing the design and architecture decisions for a PowerVS resiliency solution for AIX workloads to meet common requirements as noted in this use case. Actual solutions depend on the specific requirements that are set by the client. Review the following summary of the use case for this reference architecture:
 
-![AIX resiliency summary](/images/usecase.svg "Reference Summary"){: caption="Figure 1. Reference Architecture Summary for Deploying Resilient AIX workloads on {{site.data.keyword.powerSysFull}}" caption-side="bottom"}{: external download="usecase.svg"}
+![AIX resiliency summary](/images/usecase.svg "Reference Summary"){: caption="Reference Architecture Summary for Deploying Resilient AIX workloads on {{site.data.keyword.powerSysFull}}" caption-side="bottom"}{: external download="usecase.svg"}
 
 ## Architecture diagram
 {: #architecture-diagram}
 
-![AIX reference architecture](/images/resiliencypvsarchnumbered.svg "Resiliency Architecture Diagram"){: caption="Figure 2. Deploying resilient AIX workloads on {{site.data.keyword.powerSysFull}} reference architecture" caption-side="bottom"}{: external download="resiliencypvsarchnumbered.svg"}
+![AIX reference architecture](/images/resiliencypvsarchnumbered.svg "Resiliency Architecture Diagram"){: caption="Deploying resilient AIX workloads on {{site.data.keyword.powerSysFull}} reference architecture" caption-side="bottom"}{: external download="resiliencypvsarchnumbered.svg"}
 
 Review the environments that are related to this reference architecture:
 
@@ -71,7 +71,7 @@ The Architecture Framework provides a consistent approach to design cloud soluti
 
 Following the Architecture Design Framework, Resiliency for PowerVS covers design considerations and architecture decisions for the following aspects and domains:
 
-![heatmap](/images/aixheatmap.svg "AIX Heatmap"){: caption="Figure 3. Resiliency for PowerVS AIX Workloads Heat Map" caption-side="bottom"}{: external download="aixheatmap.svg"}
+![heatmap](/images/aixheatmap.svg "AIX Heatmap"){: caption="Resiliency for PowerVS AIX Workloads Heat Map" caption-side="bottom"}{: external download="aixheatmap.svg"}
 
 ## Requirements
 {: #requirements-list}
@@ -84,7 +84,7 @@ Following the Architecture Design Framework, Resiliency for PowerVS covers desig
 | Security           | Ensure data encryption at rest and in transit for the storage layer. Protect the boundaries of the application against denial-of-service and application-layer attacks.                                                                                                                           |
 | Resiliency         | Provide local OS level high availability between two AIX LPARs. Provide backups for data retention for AIX workloads. Recovery Time Objective (RTO) and Recovery Point Objective(/RPO) = 1 hours/1 hours.  99.99% Infrastructure Availability                                                     |
 | Service Management | Monitor the usage and performance of the resiliency components                                                                                                                                                                                                                                    |
-{: caption="Table 1. Resiliency for PowerVS requirements" caption-side="bottom"}
+{: caption="Resiliency for PowerVS requirements" caption-side="bottom"}
 
 
 
@@ -108,4 +108,4 @@ Following the Architecture Design Framework, Resiliency for PowerVS covers desig
 |                    | PowerHA Standard                                                                                                              | Local OS level between two LPARS                                                                                                    |
 |                    | Global Replication Service and {{site.data.keyword.IBM_notm}} Toolkit for AIX Full System Replication                                                      | SAN to SAN replication between two {{site.data.keyword.cloud_notm}} data centers                                                                           |
 | Service Management | {{site.data.keyword.logs_full_notm}} {{site.data.keyword.monitoringlong_notm}}                                                | Apps, Audit, and operational logs monitor platform metrics                                                                          |
-{: caption="Table 2. Resiliency for PowerVS components" caption-side="bottom"}
+{: caption="Resiliency for PowerVS components" caption-side="bottom"}

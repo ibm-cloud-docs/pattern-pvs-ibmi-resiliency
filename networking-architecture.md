@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-08-06"
+lastupdated: "2024-10-09"
 
 subcollection: pattern-pvs-ibmi-resiliency
 
@@ -23,4 +23,4 @@ keywords:
 | Cloud landing zone connectivity | Connect across multiple VPCs and to {{site.data.keyword.cloud_notm}} classic and {{site.data.keyword.powerSysShort}} environments | {{site.data.keyword.tg_short}} (TGW) \n Power Edge Router (PER) \n Global {{site.data.keyword.tg_short}} (GTGW) | {{site.data.keyword.tg_short}} \n \n Power Edge Router (PER) | {{site.data.keyword.tg_short}}s (TGW) are used for interconnectivity between {{site.data.keyword.powerSysShort}} and VPCs. {{site.data.keyword.tg_short}}s have built in redundancy. TGWs are regional and are deployed two per Multi-Zone Region (MZR) within the same region. \n \n Power Edge Routers (PER) are also deployed as two per region. PER is used for interconnectivity between {{site.data.keyword.powerSysShort}} and the TGW. For more information, see [Getting started with PER](/docs/power-iaas?topic=power-iaas-per).|
 | Cloud landing zone connectivity across regions | Connect across regions | Global {{site.data.keyword.tg_short}} (GTGW) | Global {{site.data.keyword.tg_short}} (GTGW) | Interconnects classic, VPCs, and {{site.data.keyword.powerSysShort}} resources across regions. \n \n Connect to environments in other regions for resiliency data replication purposes.|
 | Domain Name System (DNS) | Ability to resolve DNS names on site | {{site.data.keyword.dns_full_notm}} | {{site.data.keyword.IBM_notm}} continues to forward or relay the DNS to client DNS Servers onsite | This is the default option in the absence of a specific customer requirement to manage DNS \n \n Name resolution for the backup server connections is required. |
-{: caption="Table 1. Architecture decisions for network" caption-side="bottom"}
+{: caption="Architecture decisions for network" caption-side="bottom"}
