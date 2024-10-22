@@ -73,9 +73,7 @@ For sizing and configuration information, contact [Cobalt Iron support](https://
 
 The local operating system high availability method is PowerHA Standard Edition.
 
-By default, {{site.data.keyword.powerSys_notm}}s are restarted on a different host system if a hardware failure occurs. PowerHA Standard Edition provides local clustering for ‘mission critical’ workloads. The clustering infrastructure allows you to create and manage multiple systems and system resources as a unified entity. Shared resources enable the cluster to continuously provide essential services to users and applications. Key PowerHA Cluster Functions include heartbeat monitoring for failure detection, activation/release of Highly Available Services IPs, automatic activation of geographically mirrored volume groups, and start/stop/monitor of applications. Additionally, failover resource groups can move between cluster members and sites.
-
-For more information on POWERHA, see [High availability and disaster recovery](/docs/power-iaas?topic=power-iaas-ha-dr).
+By default, {{site.data.keyword.powerSys_notm}}s are restarted on a different host system if a hardware failure occurs. PowerHA Standard Edition provides local clustering for mission critical workloads. The clustering infrastructure allows you to create and manage multiple systems and system resources as a unified entity. Shared resources enable the cluster to continuously provide essential services to users and applications. Key PowerHA Cluster Functions include heartbeat monitoring for failure detection, activation and release of highly available services IPs, automatic activation of geographically mirrored volume groups, and start/stop/monitor of applications. Also, failover resource groups can move between cluster members and sites. For more information on POWERHA, see [high availability and disaster recovery](/docs/power-iaas?topic=power-iaas-ha-dr).
 
 PowerHA supports resource optimization high availability (ROHA) for AIX instances on {{site.data.keyword.powerSys_notm}}. However, this is not discussed in this pattern ROHA is another level of automation that is built into PowerHA that might be considered. It enables clustered instances to automatically adjust central processing units (CPUs) and memory resources, which allows organizations to be more efficient in their overall use and consumption of those resources. For more information on configuring and by using ROHA with {{site.data.keyword.powerSys_notm}}, see [Resource Optimized High Availability in Cloud](https://www.ibm.com/docs/en/powerha-aix/7.2?topic=administering-resources-optimized-high-availability-in-cloud){: external}.
 
@@ -90,9 +88,9 @@ In this configuration, both nodes have simultaneous access to the shared disks a
 
 Secondary data center with Global Replication Service (GRS)
 
-The Power Systems Virtual Server service provides a Tier 2 99.95% SLA by default. When an Logical Partition (LPAR) has an outage within the service, it automatically attempts to restart that LPAR on a separate host. For a Tier 3 SLA of 99.99%, the workload is distributed across two data centers. Supporting a 1 hour RTO and 1 hour RPO, the solution that is described in this pattern includes:
+The Power Systems Virtual Server service provides a Tier 2 99.95% SLA by default. When a Logical Partition (LPAR) has an outage within the service, it automatically attempts to restart that LPAR on a separate host. For a Tier 3 SLA of 99.99%, the workload is distributed across two data centers. Supporting a 1 hour RTO and 1 hour RPO, the solution that is described in this pattern includes:
 
-- Secondary data center
+- A secondary data center
 
 - SAN to SAN replication paired between two {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}} (PowerVS) workspaces in different data centers.
 
@@ -106,7 +104,7 @@ Review the key capabilities for disaster recovery design considerations:
 
 - CG Services to create and delete CGs, add and remove volumes, stop and start, and so on.
 
-- Volume services to create, delete, and retype enabled to support mirrored volumes
+- Volume services to create, delete, and retype enabled to support mirrored volumes.
 
 - Virtual machines services to deploy, delete, attach, detach, clone, and snapshot for mirrored volumes.
 
@@ -114,27 +112,27 @@ When a write operation is issued to a source volume, the changes are typically p
 
 For more information, see [Global Replication Services Solution using {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}](https://cloud.ibm.com/media/docs/downloads/power-iaas/Global_Replication_Services_Solution_using_IBM_Power_Virtual_Server.pdf){: external}.
 
-Consider the {{site.data.keyword.IBM_notm}} Toolkit for AIX from {{site.data.keyword.IBM_notm}} Technology Expert Labs for disaster recovery automation functions and capabilities on the {{site.data.keyword.cloud_notm}} by integrating {{site.data.keyword.powerSys_notm}} with the capabilities of GRS. With the Toolkit, simplify and automate operations of the disaster recovery solution. {{site.data.keyword.IBM_notm}} Toolkit for AIX Full System Replication (AIX) enables automated disaster recovery functions and capabilities on the {{site.data.keyword.cloud_notm}} by integrating {{site.data.keyword.powerSys_notm}} with the capabilities of GRS. Clients can manage their DR environment that uses their existing AIX skills. Toolkit functions:
+Consider the {{site.data.keyword.IBM_notm}} Toolkit for AIX from {{site.data.keyword.IBM_notm}} Technology Expert Labs for disaster recovery automation functions and capabilities on the {{site.data.keyword.cloud_notm}} by integrating {{site.data.keyword.powerSys_notm}} with the capabilities of GRS. With the toolkit, simplify and automate the operations of the disaster recovery solution. {{site.data.keyword.IBM_notm}} Toolkit for AIX Full System Replication (AIX) enables automated disaster recovery functions and capabilities on the {{site.data.keyword.cloud_notm}} by integrating {{site.data.keyword.powerSys_notm}} with the capabilities of GRS. Clients can manage their DR environment that uses their existing AIX skills. Review the following toolkit functions:
 
 - Full System Replication for {{site.data.keyword.IBM_notm}} AIX {{site.data.keyword.powerSys_notm}}
     - Replicate your data from between {{site.data.keyword.cloud_notm}} sites
     - Replicate the AIX OS volumes
 
-- Disaster Recovery Services
-    - Perform a VM switch by deactivating a VM from one site and activating its replicated VM on another site
+- Disaster recovery services
+    - Perform a virtual machine switch by deactivating a virtual machine from one site and activating its replicated virtual machine on another site.
 
 - Administrative Functions
-    - Reduce outage time by activating your application on another {{site.data.keyword.IBM_notm}} site while performing required maintenance
+    - Reduce outage time by activating your application on another {{site.data.keyword.IBM_notm}} site while performing required maintenance.
 
 - How to get started: [technologyservices@ibm.com](mailto:technologyservices@ibm.com)
 
-- To fully automate, the site and volume relationship requires PowerHA Enterprise Edition. The PowerHA GLVM Functions include:
+- To fully automate, the site and volume relationship requires PowerHA Enterprise Edition. The PowerHA GLVM functions include:
 
     - Automate all rpvserver and rpvclient relationships
 
-    - Ensure that all LV copies are kept in sync
+    - Help ensure that all LV copies are kept in sync
 
-    - If half of the disks are missing perform a "force" varyon
+    - If half of the disks are missing, perform a force varyon.
 
     - Handle Data Divergence dominant site
 
