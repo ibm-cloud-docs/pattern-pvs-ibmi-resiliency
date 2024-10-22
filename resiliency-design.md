@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-07-03"
+lastupdated: "2024-10-23"
 
 subcollection: pattern-pvs-ibmi-resiliency
 
@@ -34,7 +34,7 @@ It's important to validate what offerings are available in the regions you are d
 
 Secure Automated Backup with Compass: The backup offering VPC and the {{site.data.keyword.powerSys_notm}} workspaces should be in the same region and connected by using the local Transit Gateway. Check for Secure Automated Backup with Compass [paired data centers](/docs/power-iaas?topic=power-iaas-backup-strategies#baas) 
 
-Global Replication Services: Review the [Locations](/docs/power-iaas?topic=power-iaas-getting-started-GRS) that support a global replication service.
+Global Replication Services: Review the [locations](/docs/power-iaas?topic=power-iaas-getting-started-GRS) that support a global replication service.
 
 
 ## Resiliency Design Considerations for Backup
@@ -53,21 +53,22 @@ Here are some key considerations when deploying the Secure Automated Backup with
 - By default, there are 2 copies of data - one in each MZR, service is setup in pairs; validate Secure Automated Backup with Compass [data center pairings](/docs/power-iaas?topic=power-iaas-backup-strategies#baas-dcs).
 - Replication frequency: The daily replication is based on the local time zone.
 
-- This third-party product is provided by a vendor outside of {{site.data.keyword.cloud_notm}} and is subject to a separate agreement between you and the third party if you accept their terms. {{site.data.keyword.cloud_notm}} is not responsible for the product and makes no privacy, security, performance, support, or other commitments regarding the product.
+This third-party product is provided by a vendor outside of {{site.data.keyword.cloud_notm}} and is subject to a separate agreement between you and the third party if you accept their terms. {{site.data.keyword.cloud_notm}} is not responsible for the product and makes no privacy, security, performance, support, or other commitments regarding the product.
+{: important}
 
-For sizing and configuration information, reach out to [Cobalt Iron support](https://www.cobaltiron.com/) For information about the methods, see [Secure Automated Backup with Compass summary](https://cloud.ibm.com/catalog/services/secure-automated-backup-with-compass\#about){: external}.
+For sizing and configuration information, contact [Cobalt Iron support](https://www.cobaltiron.com/). For more information about the methods, see [Secure Automated Backup with Compass summary](https://cloud.ibm.com/catalog/services/secure-automated-backup-with-compass\#about){: external}.
 
-- The ROI Estimator can be found [ROI Estimator](https://cobaltiron.valuestoryapp.com/savings-calculator/?mediafly_tco_calculator_conversion_source=site-heroslider){: external}.
+- The ROI Estimator can be found by going to [ROI Estimator](https://cobaltiron.valuestoryapp.com/savings-calculator/?mediafly_tco_calculator_conversion_source=site-heroslider){: external}.
 
-- Rootvg restore method is required, such as Make System Backup (mksysb) stored/retrieved from Cloud Object Storage. The restored mksysb image applies the AIX configuration details while preserving the {{site.data.keyword.powerSys_notm}} deployed storage and networking resources. For more information, see [mksysb](/docs/power-iaas?topic=power-iaas-restoring-aix-mksysb-image).
+- Rootvg restore method is required, such as Make System Backup (mksysb) stored and retrieved from Cloud Object Storage. The restored mksysb image applies the AIX configuration details while preserving the {{site.data.keyword.powerSys_notm}} deployed storage and networking resources. For more information, see [mksysb](/docs/power-iaas?topic=power-iaas-restoring-aix-mksysb-image).
 
--   Check for Secure Automated Backup with Compass [region availability](https://cloud.ibm.com/catalog/services/secure-automated-backup-with-compass){: external}.
+- Check for Secure Automated Backup with Compass [region availability](https://cloud.ibm.com/catalog/services/secure-automated-backup-with-compass){: external}.
 
 - The Compass Commander UI is in the {{site.data.keyword.cloud_notm}} and accessible from the {{site.data.keyword.cloud_notm}} cloud. It is external to the VPC, SSO enabled.
 
 ![Baas](images/baas.svg "Baas Diagram"){: caption="Figure 1: Secure Automated Backup with Compass" caption-side="bottom"}{: external download="baas.svg"}
 
-## Design considerations: High availability
+## Resiliency design considerations for high availability
 {: #ha-considerations}
 
 The local operating system high availability method is PowerHA Standard Edition.
@@ -84,7 +85,7 @@ The following figure shows a configuration that uses PowerHA Standard Edition.
 
 In this configuration, both nodes have simultaneous access to the shared disks and own the same disk resources. There is no takeover of shared disks if a node leaves the cluster, since the peer node already has the shared volume group that is varied on.
 
-## Resiliency Design Considerations for Disaster Recovery
+## Resiliency design considerations for disaster recovery
 {: #dr-design}
 
 Secondary data center with Global Replication Service (GRS)
