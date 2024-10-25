@@ -17,7 +17,7 @@
       {
         "title": "Compute Design",
         "href": "/docs/pattern-pvs-aix-resiliency?topic=pattern-pvs-ibmi-resiliency-compute-design"
-      },
+      }
     ]
   },
   "section_highlights": [
@@ -40,7 +40,7 @@
       "title": "IBM Power Virtual Server for IBM i reference Architecture",
       "href": "/docs/pattern-pvs-ibmi-resiliency?topic=pattern-pvs-ibmi-resiliency-power-virtual-server-on-IBMi",
       "deployable": false
-    },
+    }
   ],
   "section_updates": {
     "view_more": "/docs/overview?topic=overview-whatsnew",
