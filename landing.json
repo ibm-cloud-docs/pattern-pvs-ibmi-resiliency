@@ -1,0 +1,66 @@
+{
+  "version": 2,
+  "title": "Deploying Resilient Workloads on IBM Power Virtual Server for IBM i",
+  "introduction": "The deploying resilient IBMi workloads on IBM Power Virtual Server pattern deploy a multi-region solution onfor IBM i on IBM Power Virtual Server that includes backup, high availability, and disaster recovery.",
+  "product_page": "https://www.ibm.com/products/power-virtual-server",
+  "deployment_url": "https://cloud.ibm.com/catalog/content/url/to/deploy",
+  "section_topics": {
+    "links": [
+      {
+        "title": "Welcome to Deploying Resiliency for IBMi on IBM Power Virtual Server",
+        "href": "/docs/pattern-pvs-aix-resiliency?topic=pattern-pvs-ibmi-resiliency-overview"
+      },
+      {
+        "title": "Reference Architecture",
+        "href": "/docs/pattern-pvs-aix-resiliency?topic=pattern-pvs-ibmi-resiliency-power-virtual-server-on-IBMi"
+      },
+      {
+        "title": "Compute Design",
+        "href": "/docs/pattern-pvs-aix-resiliency?topic=pattern-pvs-ibmi-resiliency-compute-design"
+      },
+    ]
+  },
+  "section_highlights": [
+    {
+      "title": "BM Power Systems Virtual Server Guide for IBM i",
+      "description": "This redbook provides in depth reccomendations on deploying IBM i environments on Power Virtual Server",
+      "href": "https://www.redbooks.ibm.com/abstracts/sg248513.html",
+      "type": "redbook"
+    },
+    {
+      "title": "IBM Power Systems High Availability and Disaster Recovery Updates: Planning for a Multicloud Environment",
+      "description": "This IBM Redbook provides in depth reccoemdnations on how to deploy Disasaster Recovery in  multicloud environment.",
+      "href": "https://www.redbooks.ibm.com/abstracts/redp5663.html",
+      "type": "redbook",
+      "recommended": true
+    }
+  ],
+  "section_architectures": [
+    {
+      "title": "IBM Power Virtual Server for IBM i reference Architecture",
+      "href": "/docs/pattern-pvs-ibmi-resiliency?topic=pattern-pvs-ibmi-resiliency-power-virtual-server-on-IBMi",
+      "deployable": false
+    },
+  ],
+  "section_updates": {
+    "view_more": "/docs/overview?topic=overview-whatsnew",
+    "tiles": [
+      {
+        "date": "07 August 2024",
+        "title": "Experimental: Access resources from the Resources tab"
+      },
+      {
+        "date": "07 August 2024",
+        "title": "View counts for all resources in the resource summary widget"
+      },
+      {
+        "date": "17 June 2024",
+        "title": "Experimental: Using AI to answer your questions about IBM Cloud"
+      },
+      {
+        "date": "17 June 2024",
+        "title": "Changes to IBM Cloud projects API method to list all deployed resources"
+      }
+    ]
+  }
+}

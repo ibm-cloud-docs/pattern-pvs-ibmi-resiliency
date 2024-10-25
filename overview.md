@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-10-18"
+lastupdated: "2024-10-25"
 
 subcollection: pattern-pvs-ibmi-resiliency
 
@@ -15,7 +15,7 @@ keywords:
 # Overview
 {: #overview}
 
-The deploying resilient AIX workloads on {{site.data.keyword.powerSys_notm}} pattern deploy a multi-region solution on {{site.data.keyword.powerSysShort}} that includes backup, high availability, and disaster recovery. This pattern can be used to provide an all-in approach for deploying a resilient power architecture within the {{site.data.keyword.powerSysShort}} for AIX workloads. 
+The deploying resilient IBMi workloads on {{site.data.keyword.powerSys_notm}} pattern deploy a multi-region solution on {{site.data.keyword.powerSysShort}} that includes backup, high availability, and disaster recovery. This pattern can be used to provide an all-in approach for deploying a resilient power architecture within the {{site.data.keyword.powerSysShort}} for AIX workloads. 
 
 The solution does not address application or database level high available design.
 {: note}
