@@ -8,15 +8,15 @@
     "links": [
       {
         "title": "Welcome to deploying resiliency for IBM i on IBM Power Virtual Server",
-        "href": "/docs/pattern-pvs-aix-resiliency?topic=pattern-pvs-ibmi-resiliency-overview"
+        "href": "/docs/pattern-pvs-ibmi-resiliency?topic=pattern-pvs-ibmi-resiliency-overview"
       },
       {
         "title": "Reference Architecture",
-        "href": "/docs/pattern-pvs-aix-resiliency?topic=pattern-pvs-ibmi-resiliency-power-virtual-server-on-IBMi"
+        "href": "/docs/pattern-pvs-ibmi-resiliency?topic=pattern-pvs-ibmi-resiliency-power-virtual-server-on-IBMi"
       },
       {
         "title": "Compute Design",
-        "href": "/docs/pattern-pvs-aix-resiliency?topic=pattern-pvs-ibmi-resiliency-compute-design"
+        "href": "/docs/pattern-pvs-ibmi-resiliency?topic=pattern-pvs-ibmi-resiliency-compute-design"
       }
     ]
   },
