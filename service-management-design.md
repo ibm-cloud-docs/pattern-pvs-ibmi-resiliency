@@ -21,11 +21,17 @@ The following are requirements for the service management aspect for the Resilie
 
 - Monitor the usage and performance of the backup, high availability, and disaster recovery components.
 
+## Operations Management
+{: #operations-management}
+
 Operations management is a key aspect of building resilient applications. The following supports the application availability targets.
 
 - Continuously monitor the application and platform infrastructure to detect failures and degradations.
 
 - Integrate automated monitoring with rich notification tools to automate problem resolution and enable a timely response to incidents.
+
+## Monitoring Health
+{: #monitoring-health}
 
 Monitoring the health of solution components, cloud services, applications, and operational logs are crucial for maintaining enterprise application availability. Through proper operational monitoring, you can determine whether a failover to an alternative site is necessary, or if operations have normalized following a system disruption.
 
@@ -48,6 +54,9 @@ Implement incident detection, notification, escalation, discovery, and declarati
 - Secure automated backup with Compass - Alerting, notifications, and ticketing features and integration with {{site.data.keyword.cloud_notm}} Monitoring, {{site.data.keyword.logs_full_notm}}, and Client tools.
 
 - Alternatively, third-party software such as Splunk and Datadog can be integrated with {{site.data.keyword.cloud_notm}} to provide security monitoring, compliance reporting, and operational intelligence.
+
+## References
+{: #reference-links}
 
 Here are some references for service management for {{site.data.keyword.powerSysFull}}.
 

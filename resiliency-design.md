@@ -112,7 +112,7 @@ When a write operation is issued to a source volume, the changes are typically p
 
 For more information, see [Global Replication Services Solution using {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}](https://cloud.ibm.com/media/docs/downloads/power-iaas/Global_Replication_Services_Solution_using_IBM_Power_Virtual_Server.pdf){: external}.
 
-Consider the {{site.data.keyword.IBM_notm}} Toolkit for AIX from {{site.data.keyword.IBM_notm}} Technology Expert Labs for disaster recovery automation functions and capabilities on the {{site.data.keyword.cloud_notm}} by integrating {{site.data.keyword.powerSys_notm}} with the capabilities of GRS. With the toolkit, simplify and automate the operations of the disaster recovery solution. {{site.data.keyword.IBM_notm}} Toolkit for AIX Full System Replication (AIX) enables automated disaster recovery functions and capabilities on the {{site.data.keyword.cloud_notm}} by integrating {{site.data.keyword.powerSys_notm}} with the capabilities of GRS. Clients can manage their DR environment that uses their existing AIX skills. Review the following toolkit functions:
+Consider the {{site.data.keyword.IBM_notm}} Toolkit for IBMi from {{site.data.keyword.IBM_notm}} Technology Expert Labs for disaster recovery automation functions and capabilities on the {{site.data.keyword.cloud_notm}} by integrating {{site.data.keyword.powerSys_notm}} with the capabilities of GRS. With the toolkit, simplify and automate the operations of the disaster recovery solution. {{site.data.keyword.IBM_notm}} Toolkit for AIX Full System Replication (AIX) enables automated disaster recovery functions and capabilities on the {{site.data.keyword.cloud_notm}} by integrating {{site.data.keyword.powerSys_notm}} with the capabilities of GRS. Clients can manage their DR environment that uses their existing AIX skills. Review the following toolkit functions:
 
 - Full System Replication for {{site.data.keyword.IBM_notm}} AIX {{site.data.keyword.powerSys_notm}}
     - Replicate your data from between {{site.data.keyword.cloud_notm}} sites
@@ -124,15 +124,15 @@ Consider the {{site.data.keyword.IBM_notm}} Toolkit for AIX from {{site.data.key
 - Administrative Functions
     - Reduce outage time by activating your application on another {{site.data.keyword.IBM_notm}} site while performing required maintenance.
 
-- How to get started: [technologyservices@ibm.com](mailto:technologyservices@ibm.com)
+- In order to obtain implementation hours for the labor effort for Global replication Service reach out to our Technology Expert Labs team: [technologyservices@ibm.com](mailto:technologyservices@ibm.com)
 
 - To fully automate, the site and volume relationship requires PowerHA Enterprise Edition. The PowerHA GLVM functions include:
 
     - Automate all rpvserver and rpvclient relationships
 
-    - Help ensure that all LV copies are kept in sync
+    - Help ensure that all Logical Volume copies are kept in sync
 
-    - If half of the disks are missing, perform a force varyon.
+    - If half of the disks are missing, perform a force [varyon](https://www.ibm.com/docs/en/powerha-aix/7.2?topic=availability-using-forced-varyon). 
 
     - Handle Data Divergence dominant site
 
