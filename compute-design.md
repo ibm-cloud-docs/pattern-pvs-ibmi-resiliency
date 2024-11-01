@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-10-25"
+lastupdated: "2024-11-01"
 
 subcollection: pattern-pvs-ibmi-resiliency
 
@@ -53,13 +53,13 @@ The {{site.data.keyword.powerSys_notm}} Resiliency on AIX Pattern involves sever
 
 {{site.data.keyword.IBM_notm}} Global Replication Service (GRS) is a powerful solution that provides asynchronous data replication for {{site.data.keyword.IBM_notm}}i, AIX, and Linux workloads. GRS helps ensure data resilience by replicating storage volumes from one {{site.data.keyword.IBM_notm}} data center to a geographically distant {{site.data.keyword.IBM_notm}} data center. It supports failover and failback mechanisms, allowing seamless transitions between primary and secondary sites.
 
-These are key considerations for a successful disaster recovery setup of Power workloads in the {{site.data.keyword.powerSys_notm}} resiliency pattern.
+These are key considerations for a successful disaster recovery setup of Power Virtual Server workloads in the {{site.data.keyword.powerSys_notm}} resiliency pattern.
 
 - For this pattern, the chosen method involves deploying a secondary site by using Global Replication Service (GRS) as the replication mechanism. 
 
 - The requirements for the GRS control LPARS are at least one control LPAR (.25 cpu x 16 GB x300GB) per data center and per OS type. The control LPAR is responsible for managing GRS operations. It coordinates data sharing and replication across systems within the same SYSPLEX, a set of interconnected systems. The control LPAR helps ensure consistency, failover, and failback mechanisms during disaster recovery scenarios. It handles serialization, buffering, and metadata management for GRS-enabled datasets.
 
-- LPARS for Disaster Recovery Workloads at the secondary data center 
+- Use LPARS for Disaster Recovery Workloads at the secondary data center 
 
 - Help ensure sufficient LPAR provisioning in the recovery location to support replicas of critical workloads if a disaster occurs.
 
