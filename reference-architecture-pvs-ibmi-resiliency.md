@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-10-22"
+lastupdated: "2024-11-04"
 
 subcollection: pattern-pvs-ibmi-resiliency
 
@@ -35,15 +35,15 @@ This is a baseline solution pattern containing the design and architecture decis
 ## Architecture diagram
 {: #architecture-diagram}
 
-![AIX reference architecture](/images/resiliencypvsarchnumbered.svg "Resiliency Architecture Diagram"){: caption="Deploying resilient AIX workloads on {{site.data.keyword.powerSysFull}} reference architecture" caption-side="bottom"}{: external download="resiliencypvsarchnumbered.svg"}
+![IBM i reference architecture](/images/resiliencypvsarchnumbered.svg "Resiliency Architecture Diagram"){: caption="Deploying resilient AIX workloads on {{site.data.keyword.powerSysFull}} reference architecture" caption-side="bottom"}{: external download="resiliencypvsarchnumbered.svg"}
 
 Review the environments that are related to this reference architecture:
 
 1. Provider connects the environment by using a direct link for private connectivity.
 2. The direct link then connects to a Local Transit Gateway. This advertises and routes on-premises traffic to VPC for gateway or firewall inspection.
 3. The transit gateway connects to management VPC, which hosts your Next-Generation Firewall, management subnets for your bastion hosts, and your Virtual Private Endpoint.
-4. Backup as a Service VPC is deployed as part of the backup service automation not for workloads.
-5. The Cobalt Iron VPE instance then communicates to the Cobalt Iron SaaS {{site.data.keyword.Bluemix_notm}} service.
+4. Falconstor Storsight VSI is deployed as a monitoring dashboard for the backup solution.
+5. A Virtual Private Endpoint is deployed to communicate from the falconstor appliance to the Cloud Services Layer: Cloud Object storage. 
 6. PowerVS workspace is deployed within the {{site.data.keyword.powerSysFull}} environment and connects to the Power Edge Router (PER).
 7. A local Power high availability standard cluster is then deployed within the workspace to provide local clustering.
 8. The management and workload VPC mentioned from the primary site is also deployed in disaster recovery.
