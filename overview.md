@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-11-04"
+lastupdated: "2024-11-07"
 
 subcollection: pattern-pvs-ibmi-resiliency
 
@@ -23,7 +23,7 @@ The solution does not address application or database level high available desig
 - It can support up to 99.99% infrastructure availability when deployed as a multi-region.
 - It can support local high availability to protect from immediate LPAR failure.
 - It can support backups for AIX workloads to protect against data loss and can support disaster recovery scenarios.
-- It can support out-of-region disaster recovery.
+- It can support out of region disaster recovery.
 
 The {{site.data.keyword.powerSysShort}} resiliency pattern is intended to:
 
@@ -34,7 +34,7 @@ The {{site.data.keyword.powerSysShort}} resiliency pattern is intended to:
 ## Pattern Considerations
 {: #considerations}
 
-- Backup the IBM i  data by using a customer managed backup service.
+- Backup the IBM i data by using a customer managed backup service.
 - Provide OS level local high availability between two IBM i LPARs.
 - Provide a disaster recovery solution by using SAN to SAN replication between two regions.
 

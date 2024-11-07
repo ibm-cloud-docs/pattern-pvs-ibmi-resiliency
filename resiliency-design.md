@@ -42,7 +42,7 @@ Global Replication Services: Review the [locations](/docs/power-iaas?topic=power
 
 FalconStor Virtual Tape Library (VTL) is an optimized backup and deduplication solution that provides tape library emulation, high-speed backup or restore, data archival to supported S3 clouds for long-term storage, global data deduplication, enterprise-wide replication, and long-term cloud-based container archive, without requiring changes to the existing environment
 
-Here are some key considerations and benefits when deploying the Falconstor VTL solution:
+Review key considerations and benefits when deploying the Falconstor VTL solution:
 
 - File-level backup and restore
 - Image-level backup and restore
@@ -50,11 +50,10 @@ Here are some key considerations and benefits when deploying the Falconstor VTL 
 - Backup and archive features that include long-term retention of data
 - Backup and restore tool for periodic copies of data and applications to a separate, secondary device or secondary site and then by using those copies to recover the data and applications.
 - Up to 95% data reduction. FalconStor reduces the storage capacity required by backup data on-premises and in the cloud by up to 95%.
-- Ransomware Protection. Recover data from any point in time with air-gapped, immutable backups.
-- Offsite Protection. For offsite protection, StorSafe VTL exports virtual tapes as physical tapes, and keeps track of their location with a management dashboard. Virtual tapes can remain in the library for fast restores or can be stubbed when exported to local object storage.
-- High Performance. Improve both backup and recovery.
-- Modernize. FalconStor is 100% compatible with existing backup software, hardware, and operational procedures.
-
+- Ransomware protection to recover data from any point in time with air-gapped, immutable backups
+- StorSafe VTL exports virtual tapes as physical tapes, and keeps track of their location with a management dashboard for offsite protection. Virtual tapes can remain in the library for fast restores or can be stubbed when exported to local object storage.
+- High performance to improve both backup and recovery
+- Modernize by using FalconStor that's 100% compatible with existing backup software, hardware, and operational procedures.
 
 This third-party product is provided by a vendor outside of {{site.data.keyword.cloud_notm}} and is subject to a separate agreement between you and the third party if you accept their terms. {{site.data.keyword.cloud_notm}} is not responsible for the product and makes no privacy, security, performance, support, or other commitments regarding the product.
 {: important}

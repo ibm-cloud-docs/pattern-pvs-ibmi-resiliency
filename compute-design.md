@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-11-04"
+lastupdated: "2024-11-07"
 
 subcollection: pattern-pvs-ibmi-resiliency
 
@@ -17,7 +17,7 @@ keywords:
 
 {{site.data.keyword.powerSysFull}} provides infrastructure by using the latest virtual servers in the form of Logical Partitions (LPARS). An LPAR is a way of subdividing a computer’s resources, including memory, storage, and processors, into small logical units. These LPARs are available with various vCPU and RAM combinations, allowing users to define configurations that align with their specific use case requirements. 
 
-The requirements for the resiliency for {{site.data.keyword.powerSysFull}} IBMi workloads pattern focus on the following:
+The requirements for the resiliency for {{site.data.keyword.powerSysFull}} IBM i workloads pattern focus on the following:
 
 - The compute aspects required for the backup components.
 - The compute aspects required for the disaster recovery workloads.
@@ -28,14 +28,14 @@ The requirements for the resiliency for {{site.data.keyword.powerSysFull}} IBMi 
 
 Review the following backup method for a FalconStor StorSafe Virtual Tape Library: 
 
-FalconStor StorSafe Virtual Tape Library (VTL) is a software solution that optimizes backup and restore, to improve performance and significantly reduce backup storage costs, all without requiring changes to the existing requirement. With its integrated deduplication, the solution removes redundant copies of data, thereby reducing capacity requirements, decreasing storage costs, and minimizing replication and restore times. StorSafe VTL can be used with all leading backup solutions, and enables both hybrid and native-cloud backup, as well as both workload and tape migration to the cloud. StorSafe VTL also supports NFS and SMB interfaces in a NAS environment. AIX and Linux systems can use StorSafe as an NFS server for applications such as Oracle RMAN or SAP Hana Studio. Falconstor can be configured and ordered using the [Falconstore tile](https://cloud.ibm.com/catalog/content/vtltile-tags-v10.03-01-f1e88e51-7e3d-4fbc-a7ed-3ab9adb2afea-global?catalog_query=aHR0cHM6Ly9jbG91ZC5pYm0uY29tL2NhdGFsb2c%2Fc2VhcmNoPWZhbGNvbnN0b3Ijc2VhcmNoX3Jlc3VsdHM%3D){: external} in the cloud catalog. 
+FalconStor StorSafe Virtual Tape Library (VTL) is a software solution that optimizes backup and restore to improve performance and significantly reduce backup storage costs, all without requiring changes to the existing requirement. With its integrated deduplication, the solution removes redundant copies of data, reducing capacity requirements, decreasing storage costs, and minimizing replication and restore times. StorSafe VTL can be used with all leading backup solutions, and enables both hybrid and native-cloud backup, as well as both workload and tape migration to the cloud. StorSafe VTL also supports NFS and SMB interfaces in a NAS environment. AIX and Linux systems can use StorSafe as an NFS server for applications such as Oracle RMAN or SAP Hana Studio. Falconstor can be configured and ordered by using the [Falconstore tile](https://cloud.ibm.com/catalog/content/vtltile-tags-v10.03-01-f1e88e51-7e3d-4fbc-a7ed-3ab9adb2afea-global?catalog_query=aHR0cHM6Ly9jbG91ZC5pYm0uY29tL2NhdGFsb2c%2Fc2VhcmNoPWZhbGNvbnN0b3Ijc2VhcmNoX3Jlc3VsdHM%3D){: external} in the cloud catalog. 
 
-For the Falconstor appliance setup, it's recommended to deploy two appliances: one in the production environment and another at the disaster recovery site. These two devices will replicate with each other to prevent outages or data corruption at either location. If only a single Falconstor VTL is deployed, please note that there is no disaster recovery protection for that appliance, which means a potential risk of losing all backups.
+For the Falconstor appliance setup, it's recommended to deploy two appliances: one in the production environment and another at the disaster recovery site. These two devices replicate with each other to prevent outages or data corruption at either location. If only a single Falconstor VTL is deployed, there is no disaster recovery protection for that appliance, which means a potential risk of losing all backups.
 
 ## Compute considerations for high availability
 {: #design-considerations-ha}
 
-{{site.data.keyword.IBM_notm}} PowerHA SystemMirror for i, formerly known as {{site.data.keyword.IBM_notm}} PowerHA and HACMP, is an {{site.data.keyword.IBM_notm}} solution for high-availability clusters on IBMi, Unix and Linux platforms. It provides near-continuous application availability with advanced failure detection, failover, and recovery capabilities. 
+{{site.data.keyword.IBM_notm}} PowerHA SystemMirror for i, formerly known as {{site.data.keyword.IBM_notm}} PowerHA and HACMP, is an {{site.data.keyword.IBM_notm}} solution for high-availability clusters on IBM i, Unix, and Linux platforms. It provides near-continuous application availability with advanced failure detection, failover, and recovery capabilities. 
 
 The {{site.data.keyword.powerSys_notm}} Resiliency on IBM i Pattern involves several compute considerations that must be addressed for high availability. These considerations are essential for helping ensure a robust and reliable system.
 
@@ -43,7 +43,7 @@ The {{site.data.keyword.powerSys_notm}} Resiliency on IBM i Pattern involves sev
 
 - If one LPAR fails, the second LPAR would seamlessly assume the primary role, helping ensure uninterrupted system functions. 
 
-- This method offers adequate LPAR compute for clustered IBMi LPARs in one {{site.data.keyword.cloud_notm}} data center for local high availability.
+- This method offers adequate LPAR compute for clustered IBM i LPARs in one {{site.data.keyword.cloud_notm}} data center for local high availability.
 
 ## Compute considerations for disaster recovery
 {: #design-considerations-dr}
