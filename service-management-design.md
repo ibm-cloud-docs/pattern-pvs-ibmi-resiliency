@@ -21,7 +21,7 @@ The following are requirements for the service management aspect for the Resilie
 
 - Monitor the usage and performance of the backup, high availability, and disaster recovery components.
 
-## Operations Management
+## Operations management
 {: #operations-management}
 
 Operations management is a key aspect of building resilient applications. The following supports the application availability targets.
@@ -30,7 +30,7 @@ Operations management is a key aspect of building resilient applications. The fo
 
 - Integrate automated monitoring with rich notification tools to automate problem resolution and enable a timely response to incidents.
 
-## Monitoring Health
+## Monitoring health
 {: #monitoring-health}
 
 Monitoring the health of solution components, cloud services, applications, and operational logs are crucial for maintaining enterprise application availability. Through proper operational monitoring, you can determine whether a failover to an alternative site is necessary, or if operations have normalized following a system disruption.
@@ -58,7 +58,7 @@ Implement incident detection, notification, escalation, discovery, and declarati
 ## References
 {: #reference-links}
 
-Here are some references for service management for {{site.data.keyword.powerSysFull}}.
+Review the references for service management for {{site.data.keyword.powerSysFull}}:
 
 - [Monitoring metrics for {{site.data.keyword.powerSysFull}}](/docs/power-iaas?topic=power-iaas-monitor-sysdig)
 

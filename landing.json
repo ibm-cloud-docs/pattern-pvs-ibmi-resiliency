@@ -47,7 +47,7 @@
     "tiles": [
       {
         "date": "25 October 2024",
-        "title": "The deploying resilient IBM i workloads on {{site.data.keyword.powerSys_notm}} pattern are available for users in the {{site.data.keyword.cloud_notm}} catalog. "
+        "title": "The deploying resilient IBM i workloads on IBM Power Systems pattern are available for users in the IBM Cloud catalog. "
       }
     ]
   }

@@ -31,7 +31,7 @@ The {{site.data.keyword.powerSysShort}} resiliency pattern is intended to:
 - Provide a prescriptive, end-to-end enterprise-class solution design with diagrams, component architecture decisions, and rationale for cloud component selection for a resilient architecture.
 - Helps ensure that requirements can be met from a performance, system availability, and security perspective.
 
-## Pattern Considerations
+## Pattern considerations
 {: #considerations}
 
 - Backup the IBM i data by using a customer managed backup service.

@@ -37,7 +37,7 @@ FalconStor Virtual Tape Library (VTL): The backup offering VPC and the {{site.da
 Global Replication Services: Review the [locations](/docs/power-iaas?topic=power-iaas-getting-started-GRS) that support a global replication service.
 
 
-## Resiliency Design Considerations for Backup
+## Resiliency design considerations for backup
 {: #backup-considerations}
 
 FalconStor Virtual Tape Library (VTL) is an optimized backup and deduplication solution that provides tape library emulation, high-speed backup or restore, data archival to supported S3 clouds for long-term storage, global data deduplication, enterprise-wide replication, and long-term cloud-based container archive, without requiring changes to the existing environment
