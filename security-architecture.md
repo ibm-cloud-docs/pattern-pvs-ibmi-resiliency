@@ -13,7 +13,7 @@ keywords:
 # Architecture decisions for security
 {: #security-architecture}
 
-The following are security architecture decisions for the Power Virtual Server Resiliency on AIX pattern.
+The following are security architecture decisions for the Power Virtual Server Resiliency on IBM i pattern.
 
 | Architecture decision | Requirement | Alternatives | Decision | Rationale |
 |------|------|-------|-------|-------|

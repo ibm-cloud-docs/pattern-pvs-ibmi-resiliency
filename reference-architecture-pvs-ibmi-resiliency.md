@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-11-04"
+lastupdated: "2024-11-07"
 
 subcollection: pattern-pvs-ibmi-resiliency
 
@@ -15,7 +15,7 @@ version: 1.0
 
 deployment-url:
 
-docs: /docs/pattern-pvs-aix-resiliency
+docs: /docs/pattern-pvs-ibmi-resiliency
 
 content-type: reference-architecture
 
@@ -23,19 +23,19 @@ content-type: reference-architecture
 
 {{site.data.keyword.attribute-definition-list}}
 
-# {{site.data.keyword.powerSysFull}} resiliency on AIX
-{: #power-virtual-server-on-AIX}
+# {{site.data.keyword.powerSysFull}} resiliency on IBM i
+{: #power-virtual-server-on-IBM i}
 {: toc-content-type="reference-architecture"}
 {: toc-version="1.0"}
 
-This is a baseline solution pattern containing the design and architecture decisions for a PowerVS resiliency solution for AIX workloads to meet common requirements as described in this use case. Actual solutions depend on the specific requirements that are set by the client. Review the following summary of the use case for this reference architecture:
+This is a baseline solution pattern containing the design and architecture decisions for a PowerVS resiliency solution for IBM i workloads to meet common requirements as described in this use case. Actual solutions depend on the specific requirements that are set by the client. Review the following summary of the use case for this reference architecture:
 
-![AIX resiliency summary](/images/usecase.svg "Reference Summary"){: caption="Reference Architecture Summary for Deploying Resilient AIX workloads on {{site.data.keyword.powerSysFull}}" caption-side="bottom"}{: external download="usecase.svg"}
+![IBM i resiliency summary](/images/usecase.svg "Reference Summary"){: caption="Reference Architecture Summary for Deploying Resilient IBM i workloads on {{site.data.keyword.powerSysFull}}" caption-side="bottom"}{: external download="usecase.svg"}
 
 ## Architecture diagram
 {: #architecture-diagram}
 
-![IBM i reference architecture](/images/resiliencypvsarchnumbered.svg "Resiliency Architecture Diagram"){: caption="Deploying resilient AIX workloads on {{site.data.keyword.powerSysFull}} reference architecture" caption-side="bottom"}{: external download="resiliencypvsarchnumbered.svg"}
+![IBM i reference architecture](/images/resiliencypvsarchnumbered.svg "Resiliency Architecture Diagram"){: caption="Deploying resilient IBM i workloads on {{site.data.keyword.powerSysFull}} reference architecture" caption-side="bottom"}{: external download="resiliencypvsarchnumbered.svg"}
 
 Review the environments that are related to this reference architecture:
 
@@ -55,7 +55,7 @@ Review the environments that are related to this reference architecture:
 ## Design scope
 {: #design-scope}
 
-The PowerVS resiliency for AIX workloads architecture covers design considerations and architecture decisions for the following aspects and domains:
+The PowerVS resiliency for IBM i workloads architecture covers design considerations and architecture decisions for the following aspects and domains:
 
 - Compute: Virtual Servers
 
@@ -71,7 +71,7 @@ The Architecture Framework provides a consistent approach to design cloud soluti
 
 Following the Architecture Design Framework, Resiliency for PowerVS covers design considerations and architecture decisions for the following aspects and domains:
 
-![heatmap](/images/aixheatmap.svg "AIX Heatmap"){: caption="Resiliency for PowerVS AIX Workloads Heat Map" caption-side="bottom"}{: external download="aixheatmap.svg"}
+![heatmap](/images/ibmiheatmap.svg "IBM i Heatmap"){: caption="Resiliency for PowerVS IBM i Workloads Heat Map" caption-side="bottom"}{: external download="ibmiheatmap.svg"}
 
 ## Requirements
 {: #requirements-list}
@@ -82,7 +82,7 @@ Following the Architecture Design Framework, Resiliency for PowerVS covers desig
 | Storage            | Provide storage to support replication activities. Provide storage to support customer retention schedules.                                                                                                                                                                                       |
 | Networking         | Provide enterprise to cloud network connectivity to recovery site. Provide private connectivity between workloads across protected and recovery sites. Deploy workloads in an isolated environment and enforce information flow policies. Provide BYOIP, Edge Routing, VLAN segmentation and DNS |
 | Security           | Help ensure data encryption at rest and in transit for the storage layer. Protect the boundaries of the application against denial-of-service and application-layer attacks.                                                                                                                           |
-| Resiliency         | Provide local OS level high availability between two AIX LPARs. Provide backups for data retention for AIX workloads. Recovery Time Objective (RTO) and Recovery Point Objective(/RPO) = 1 hours/1 hours.  99.99% Infrastructure Availability                                                     |
+| Resiliency         | Provide local OS level high availability between two IBM i LPARs. Provide backups for data retention for IBM i workloads. Recovery Time Objective (RTO) and Recovery Point Objective(/RPO) = 1 hours/1 hours.  99.99% Infrastructure Availability                                                     |
 | Service Management | Monitor the usage and performance of the resiliency components                                                                                                                                                                                                                                    |
 {: caption="Resiliency for PowerVS requirements" caption-side="bottom"}
 
@@ -104,8 +104,8 @@ Following the Architecture Design Framework, Resiliency for PowerVS covers desig
 |                    | [Global Transit Gateway (GTGW)](/docs/transit-gateway?topic=transit-gateway-about)                       | Provides PowerVS and VPC connectivity in different regions (global routing)                                                         |
 |                    | [DNS Services](/docs/dns-svcs?topic=dns-svcs-about-dns-services)                                         | Private DNS resolution                                                                                                              |
 | Security           | Next-Generation Firewall (NGFW)                                                                                               | Provide IDS/IPS and edge firewall capabilities                                                                                      |
-| Resiliency         | Secure automated backup with Compass                                                                                          | Backups for AIX workloads                                                                                                           |
+| Resiliency         | Secure automated backup with Compass                                                                                          | Backups for IBM i workloads                                                                                                           |
 |                    | PowerHA Standard                                                                                                              | Local OS level between two LPARS                                                                                                    |
-|                    | Global Replication Service and {{site.data.keyword.IBM_notm}} Toolkit for AIX Full System Replication                                                      | SAN to SAN replication between two {{site.data.keyword.cloud_notm}} data centers                                                                           |
+|                    | Global Replication Service and {{site.data.keyword.IBM_notm}} Toolkit for IBM i Full System Replication                                                      | SAN to SAN replication between two {{site.data.keyword.cloud_notm}} data centers                                                                           |
 | Service Management | {{site.data.keyword.logs_full_notm}} {{site.data.keyword.monitoringlong_notm}}                                                | Apps, Audit, and operational logs monitor platform metrics                                                                          |
 {: caption="Resiliency for PowerVS components" caption-side="bottom"}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-10-22"
+lastupdated: "2024-11-07"
 
 subcollection: pattern-pvs-ibmi-resiliency
 
@@ -15,9 +15,9 @@ keywords:
 # Storage design
 {: #storage-design}
 
-Helping ensure storage resiliency for {{site.data.keyword.powerSysFull}} for AIX involves having sufficient storage capacity to accommodate high availability, backup, and disaster recovery workloads. Users must carefully consider and understand the storage types and requirements that need to be met.
+Helping ensure storage resiliency for {{site.data.keyword.powerSysFull}} for IBM i involves having sufficient storage capacity to accommodate high availability, backup, and disaster recovery workloads. Users must carefully consider and understand the storage types and requirements that need to be met.
 
-The requirements for the compute aspect for the Resiliency for PowerVS for AIX workloads pattern focus on the following:
+The requirements for the compute aspect for the Resiliency for PowerVS for IBM i workloads pattern focus on the following:
 
 - The storage required to support backup activities.
 
