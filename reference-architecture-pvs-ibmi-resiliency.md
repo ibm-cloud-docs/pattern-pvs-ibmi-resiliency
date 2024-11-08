@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-11-07"
+lastupdated: "2024-11-08"
 
 subcollection: pattern-pvs-ibmi-resiliency
 
@@ -104,7 +104,7 @@ Following the Architecture Design Framework, Resiliency for PowerVS covers desig
 |                    | [Global Transit Gateway (GTGW)](/docs/transit-gateway?topic=transit-gateway-about)                       | Provides PowerVS and VPC connectivity in different regions (global routing)                                                         |
 |                    | [DNS Services](/docs/dns-svcs?topic=dns-svcs-about-dns-services)                                         | Private DNS resolution                                                                                                              |
 | Security           | Next-Generation Firewall (NGFW)                                                                                               | Provide IDS/IPS and edge firewall capabilities                                                                                      |
-| Resiliency         | Secure automated backup with Compass                                                                                          | Backups for IBM i workloads                                                                                                           |
+| Resiliency         | FalconStor StorSafe VTL                                                                                        | Backups for IBM i workloads                                                                                                           |
 |                    | PowerHA Standard                                                                                                              | Local OS level between two LPARS                                                                                                    |
 |                    | Global Replication Service and {{site.data.keyword.IBM_notm}} Toolkit for IBM i Full System Replication                                                      | SAN to SAN replication between two {{site.data.keyword.cloud_notm}} data centers                                                                           |
 | Service Management | {{site.data.keyword.logs_full_notm}} {{site.data.keyword.monitoringlong_notm}}                                                | Apps, Audit, and operational logs monitor platform metrics                                                                          |

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-11-07"
+lastupdated: "2024-11-08"
 
 subcollection: pattern-pvs-ibmi-resiliency
 
@@ -27,16 +27,16 @@ The requirements for the compute aspect for the Resiliency for PowerVS for IBM i
 ## Storage considerations for backups
 {: #storage-considerations}
 
-The backup method that is chosen for this pattern is Secure Automated Backup with Compass and Make System Backup (MKSYSB). When sizing and configuring this method, it’s important to take several storage considerations into account.
+When designing a FalconStor Virtual Tape Library (VTL) on IBM Cloud, it's essential to integrate several critical elements to ensure the system's efficiency, security, and scalability. Data deduplication is paramount as it significantly reduces storage requirements by eliminating duplicate data, thereby saving space and enhancing backup and restore performance. Performance is also a crucial factor, necessitating high-speed backup and restore operations to minimize downtime and ensure data availability. A well-thought-out data archival strategy, utilizing supported S3 cloud solutions, is vital for managing the data lifecycle effectively. Ransomware protection through air-gapped, immutable backups is necessary to safeguard data from malicious attacks. Moreover, enterprise-wide replication ensures data availability and robust disaster recovery across multiple sites.
 
-Compass backup servers are preconfigured in data centers and are also replicated across other regions. The service is set up in pairs, with two copies of data—one in each multi-zone region (MZR). Validate that Secure Automated Backup with Compass is offered in the data center where your workloads are deployed. Consider storage size, including workload and data volumes that are both structured and unstructured, change and growth rates, and retention policies. For sizing guidance, see [Engage Cobalt Iron for sizing](https://cloud.ibm.com/catalog/services/secure-automated-backup-with-compass\#about){: external}. Help ensure that the file system has sufficient space to hold the produced mksysb image. Generally, 10 GB to 15 GB is sufficient, depending on any additional non-AIX data added to the rootvg. You might also want to consider Cloud Object Storage for storing mksysb images. 
+Scalability should be a primary design consideration, allowing the system to grow from small-scale deployments to petabyte-scale environments seamlessly. Compatibility with existing backup software and hardware systems ensures smooth integration and operation. Offsite protection, achieved by exporting virtual tapes to physical tapes, enhances data security and compliance with offsite storage requirements. Effective management and monitoring are critical for maintaining system health and performance, with management dashboards offering real-time monitoring and efficient oversight of both virtual and physical tape libraries. This comprehensive approach ensures a reliable, secure, and scalable VTL solution on IBM Cloud.
 
 ## Storage considerations for high availability
 {: #storage-ha-considerations}
 
 The high availability method that is chosen for this pattern is PowerHA SystemMirror Standard Edition for Local HA Cluster. This method meets the requirements of local clustering. Storage considerations for this solution include several high availability (HA) factors.
 
-In PowerHA SystemMirror, help ensure that the clustered workload LPARs share the volume group. The storage tier and size might be determined based on the workload requirements. Also, make sure that the Storage Logical Unit Number (LUN) for the Cluster Aware AIX (CAA) repository is set to the recommended 1 GB.
+To set up and manage a Cluster Aware repository on IBM i using PowerHA SystemMirror, you need to ensure all cluster nodes have access to the repository disk via SAN or SAS, configure the cluster through PowerHA interfaces, set up redundant communication paths for robustness, and leverage the Automatic Repository Disk Replacement (ARR) feature for continuous availability. Additionally, it's important to monitor cluster health using PowerHA interfaces and perform regular maintenance tasks to ensure smooth operations.
 
 ## Storage considerations for disaster recovery
 {: #dr-storage-considerations}
