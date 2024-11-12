@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-11-08"
+lastupdated: "2024-11-12"
 
 subcollection: pattern-pvs-ibmi-resiliency
 
@@ -45,7 +45,7 @@ Review the environments that are related to this reference architecture:
 4. Falconstor Storsight VSI is deployed as a monitoring dashboard for the backup solution.
 5. A Virtual Private Endpoint is deployed to communicate from the falconstor appliance to the Cloud Services Layer: Cloud Object storage. 
 6. PowerVS workspace is deployed within the {{site.data.keyword.powerSysFull}} environment and connects to the Power Edge Router (PER).
-7. A local Power high availability standard cluster is then deployed within the workspace to provide local clustering.
+7. A local Power high availability standard cluster is then deployed within the workspace to provide local clustering. It is utilizing PowerHA SystemMirror for i as the software and geographic mirroring as the replication method. 
 8. The management and workload VPC mentioned from the primary site is also deployed in disaster recovery.
 9. Global Replication Service (GRS) is deployed as part of Disaster Recovery Storage Area Network to Storage Area Network replication.
 10. There is a GRS controller Logical Partition that is deployed at both the primary and the disaster recovery (DR) site.
@@ -105,7 +105,7 @@ Following the Architecture Design Framework, Resiliency for PowerVS covers desig
 |                    | [DNS Services](/docs/dns-svcs?topic=dns-svcs-about-dns-services)                                         | Private DNS resolution                                                                                                              |
 | Security           | Next-Generation Firewall (NGFW)                                                                                               | Provide IDS/IPS and edge firewall capabilities                                                                                      |
 | Resiliency         | FalconStor StorSafe VTL                                                                                        | Backups for IBM i workloads                                                                                                           |
-|                    | PowerHA Standard                                                                                                              | Local OS level between two LPARS                                                                                                    |
+|                    | PowerHA SystemMirror for i                                                                                                              | Local OS level between two LPARS                                                                                                    |
 |                    | Global Replication Service and {{site.data.keyword.IBM_notm}} Toolkit for IBM i Full System Replication                                                      | SAN to SAN replication between two {{site.data.keyword.cloud_notm}} data centers                                                                           |
 | Service Management | {{site.data.keyword.logs_full_notm}} {{site.data.keyword.monitoringlong_notm}}                                                | Apps, Audit, and operational logs monitor platform metrics                                                                          |
 {: caption="Resiliency for PowerVS components" caption-side="bottom"}

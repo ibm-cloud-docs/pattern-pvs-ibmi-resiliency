@@ -67,17 +67,20 @@ For sizing and configuration information, contact [FalconStor VTL Support](https
 ## Resiliency design considerations for high availability
 {: #ha-considerations}
 
-The local operating system high availability method is PowerHA Standard Edition.
+The local operating system high availability method is IBM PowerHA SystemMirror for i.
 
-By default, {{site.data.keyword.powerSys_notm}}s are restarted on a different host system if a hardware failure occurs. PowerHA Standard Edition provides local clustering for mission critical workloads. The clustering infrastructure allows you to create and manage multiple systems and system resources as a unified entity. Shared resources enable the cluster to continuously provide essential services to users and applications. Key PowerHA Cluster Functions include heartbeat monitoring for failure detection, activation and release of highly available services IPs, automatic activation of geographically mirrored volume groups, and start/stop/monitor of applications. Also, failover resource groups can move between cluster members and sites. For more information on PowerHA, see [high availability and disaster recovery](/docs/power-iaas?topic=power-iaas-ha-dr).
+By default, {{site.data.keyword.powerSys_notm}}s are restarted on a different host system if a hardware failure occurs. IBM PowerHA SystemMirror for i provides local clustering for mission critical workloads. The clustering infrastructure allows you to create and manage multiple systems and system resources as a unified entity. Shared resources enable the cluster to continuously provide essential services to users and applications. Key PowerHA Cluster Functions include heartbeat monitoring for failure detection, activation and release of highly available services IPs, automatic activation of geographically mirrored volume groups, and start/stop/monitor of applications. Also, failover resource groups can move between cluster members and sites. For more information on PowerHA, see [high availability and disaster recovery](/docs/power-iaas?topic=power-iaas-ha-dr).
 
-PowerHA supports resource optimization high availability (ROHA) for IBM i instances on {{site.data.keyword.powerSys_notm}}. However, this is not discussed in this pattern ROHA is another level of automation that is built into PowerHA that might be considered. It enables clustered instances to automatically adjust central processing units (CPUs) and memory resources, which allows organizations to be more efficient in their overall use and consumption of those resources. For more information on configuring and by using ROHA with {{site.data.keyword.powerSys_notm}}, see [Resource Optimized High Availability in Cloud](https://www.ibm.com/docs/en/powerha-aix/7.2?topic=administering-resources-optimized-high-availability-in-cloud){: external}.
-
-The following figure shows a configuration that uses PowerHA Standard Edition.
+The following figure shows a configuration that uses IBM PowerHA SystemMirror for i utilizing geographic mirroring.
 
 ![Standard PHA](/images/standardpha.svg "PowerHA geographic mirroring diagram"){: caption="Figure 2: PowerHA geographic mirroring architecture" caption-side="bottom"}{: external download="standardpha.svg"}
 
-In this configuration, both nodes have simultaneous access to the shared disks and own the same disk resources. There is no takeover of shared disks if a node leaves the cluster, since the peer node already has the shared volume group that is varied on.
+Geographic mirroring refers to the IBM i host-based replication solution that is provided as a function of IBM PowerHA SystemMirror for i. 
+
+Geographic mirroring is managed by IBM i storage management so that replication is performed on a disk page segment basis. When a page of data is written, storage management automatically manages the replication of this page to the remote system.
+
+Geographic mirroring requires a two-node clustered environment and uses data port services. These data port services are provided by the System Licensed Internal Code (SLIC) to support the transfer of large volumes of data between a source node and a target
+node.
 
 ## Resiliency design considerations for disaster recovery
 {: #dr-design}
@@ -121,16 +124,6 @@ Consider the {{site.data.keyword.IBM_notm}} Toolkit for IBMi from {{site.data.ke
     - Reduce outage time by activating your application on another {{site.data.keyword.IBM_notm}} site while performing required maintenance.
 
 - In order to obtain implementation hours for the labor effort for Global replication Service reach out to our Technology Expert Labs team: [technologyservices@ibm.com](mailto:technologyservices@ibm.com)
-
-- To fully automate, the site and volume relationship requires PowerHA Enterprise Edition. The PowerHA GLVM functions include:
-
-    - Automate all rpvserver and rpvclient relationships
-
-    - Help ensure that all Logical Volume copies are kept in sync
-
-    - If half of the disks are missing, perform a force [varyon](https://www.ibm.com/docs/en/powerha-aix/7.2?topic=availability-using-forced-varyon). 
-
-    - Handle Data Divergence dominant site
 
 - Validate [data center pairings](/docs/power-iaas?topic=power-iaas-getting-started-GRS) available for global replication service.
 

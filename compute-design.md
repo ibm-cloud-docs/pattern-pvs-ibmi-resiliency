@@ -35,11 +35,11 @@ For the Falconstor appliance setup, it's recommended to deploy two appliances: o
 ## Compute considerations for high availability
 {: #design-considerations-ha}
 
-{{site.data.keyword.IBM_notm}} PowerHA SystemMirror for i, formerly known as {{site.data.keyword.IBM_notm}} PowerHA and HACMP, is an {{site.data.keyword.IBM_notm}} solution for high-availability clusters on IBM i, Unix, and Linux platforms. It provides near-continuous application availability with advanced failure detection, failover, and recovery capabilities. 
+PowerHA SystemMirror for i is an IBM high availability and disaster recovery solution designed for IBM i environments. It provides environmental, application, and data resiliency by seamlessly integrating with the IBM i operating system. PowerHA offers features like geographic mirroring to ensure continuous availability and data protection. It also includes a management interface for easy configuration and operation.
 
 The {{site.data.keyword.powerSys_notm}} Resiliency on IBM i Pattern involves several compute considerations that must be addressed for high availability. These considerations are essential for helping ensure a robust and reliable system.
 
-- {{site.data.keyword.IBM_notm}} PowerHA SystemMirror Standard Edition allows the failover of 2 LPAR sharing the storage volume.
+- {{site.data.keyword.IBM_notm}} PowerHA SystemMirror allows the failover of 2 IBMi LPARs connected to 2 Indepenpendant Auxillary Storage Pools (IASP). 
 
 - If one LPAR fails, the second LPAR would seamlessly assume the primary role, helping ensure uninterrupted system functions. 
 

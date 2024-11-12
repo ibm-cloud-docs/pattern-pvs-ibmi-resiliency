@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-11-08"
+lastupdated: "2024-11-12"
 
 subcollection: pattern-pvs-ibmi-resiliency
 
@@ -34,9 +34,11 @@ Scalability should be a primary design consideration, allowing the system to gro
 ## Storage considerations for high availability
 {: #storage-ha-considerations}
 
-The high availability method that is chosen for this pattern is PowerHA SystemMirror Standard Edition for Local HA Cluster. This method meets the requirements of local clustering. Storage considerations for this solution include several high availability (HA) factors.
+IBM PowerHA SystemMirror for i is selected for its effectiveness in meeting the requirements of local clustering. The solution's storage considerations encompass several high availability (HA) factors to ensure robust data protection and system resilience.
 
-To set up and manage a Cluster Aware repository on IBM i using PowerHA SystemMirror, you need to ensure all cluster nodes have access to the repository disk via SAN or SAS, configure the cluster through PowerHA interfaces, set up redundant communication paths for robustness, and leverage the Automatic Repository Disk Replacement (ARR) feature for continuous availability. Additionally, it's important to monitor cluster health using PowerHA interfaces and perform regular maintenance tasks to ensure smooth operations.
+Synchronous Geographic Mirroring within PowerHA provides real-time data replication between an independent disk pool at the production system and a second, remote system. This guarantees that both copies of the data are identical, offering zero data loss during failures. However, this requires the production and mirrored sites to be in close proximity due to the real-time replication needs.
+
+This mirroring solution is ideal for organizations with internal storage needing protection against both planned and unplanned outages, without the necessity for site disaster protection. It works with any storage type, ensuring data copies are identical (RPO). Limitations include the need for sufficient bandwidth to support maximum production write rates and the need for full synchronization upon abnormal vary-off, during which no valid second copy is available.
 
 ## Storage considerations for disaster recovery
 {: #dr-storage-considerations}
