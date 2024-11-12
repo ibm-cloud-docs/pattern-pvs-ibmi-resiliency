@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-10-18"
+lastupdated: "2024-11-12"
 
 subcollection: pattern-pvs-ibmi-resiliency
 
@@ -45,29 +45,26 @@ Here are some key considerations for replication traffic when implementing backu
 
 - Global replication traffic between {{site.data.keyword.powerSysShort}} regions traverse the {{site.data.keyword.cloud_notm}} backbone.
 - GRS control Logical Partition (LPAR) traffic traverses the GTGW.
-- Backup replication flows in the following manner: From TGW to VPE to {{site.data.keyword.cloud_notm}} Backbone-Compass Vault System to {{site.data.keyword.cloud_notm}} Backbone to Secondary Compass vault system.
+- Backup replication flows as follows: From Falconstor Site 1 to the Power Edge Router (PER), then through the Transit Gateway (TGW), followed by the Global Transit Gateway (GTGW). It continues to Site 2 TGW, then to Site 2 PER, and finally reaches the second Falconstor appliance.
 
 ## Virtual Private Cloud (VPC)
 {: #virtual-private-cloud}
 
 Multiple VPCs are used in this pattern. Additional client requirements might require additional VPCs. This pattern includes:
 
-- BaaS and backup VPC: Secure Automated Backup with Compass automated deployment deploys a BaaS and backup VPC. 
+- Managment VPC: Next Generation Firewall (NGFW) is deployed in the Managment VPC. To provide isolation and centralized advanced security functions, the network design follows the hub and spoke VPC model. The managment VPC serves as the hub for which all ingress and egress traffic flows. The managment vpc is a virtual network VPC that acts as a central point of connectivity to on-premises network and all other VPCs. {{site.data.keyword.powerSysShort}} workspaces are connected to the managment VPC also know as the hub by a {{site.data.keyword.tg_short}}, which allows traffic routing between the VPCs and {{site.data.keyword.powerSysShort}} workspaces in the {{site.data.keyword.cloud_notm}} account.
+- Workload VPC: The FalconStor management console is deployed within the workload VPC, which functions as the spoke VPC. This environment supports ancillary workload infrastructure, including virtual servers and bare metal instances.
 
-    We recommend refraining from deploying additional workloads in this VPC, as it is intended exclusively for the backup solution.
-    {: note}
+### Falconstor Virtual Tape Library (VTL)
+{: #falconstor-vtl}
 
-- Edge VPC: Next Generation Firewall (NGFW) is deployed in the Edge VPC. To provide isolation and centralized advanced security functions, the network design follows the hub and spoke VPC model. The Edge VPC serves as the hub for which all ingress and egress traffic flows. The edge is a virtual network VPC that acts as a central point of connectivity to on-premises network and all other VPCs. {{site.data.keyword.powerSysShort}} workspaces are connected to the edge also know as the hub by a {{site.data.keyword.tg_short}}, which allows traffic routing between the VPCs and {{site.data.keyword.powerSysShort}} workspaces in the {{site.data.keyword.cloud_notm}} account.
+When provisioned through the {{site.data.keyword.cloud_notm}} catalog, an automation process deploys the FalconStor VTL solution, which includes:
 
-### Secure automated backup with Compass
-{: #secure-automated-backup-compass}
-
-When provisioned through the {{site.data.keyword.cloud_notm}} catalog, an automation process deploys the backup solution, which includes:
-
-- {{site.data.keyword.vpc_full}} (VPC) exclusive use of the backup activity. Also known as “Baas or Backup VPC.
-- Virtual Private Endpoints (VPE) to establish a secure private network connection to the Compass backup servers.
-- A local {{site.data.keyword.tg_short}} if it does not exist. The cloud account notifies you if one does exist. 
-- The backup offering VPC and the {{site.data.keyword.powerSysFull}} workspaces should be in the same region and connected by using the local {{site.data.keyword.tg_short}}.
+- The deployment target on Power Virtual Server
+- A delivery method of a server image. This may be an S922,E980, or an E1022 logical partition (LPAR) Power Virtual server model. 
+- The falconstor license is provisioned
+- There are also optional configurable input variables availble to the customer such as network, storage sizing, and index size. 
+- For more information please see the FalconStor [order form](https://cloud.ibm.com/catalog/content/vtltile-tags-v10.03-01-f1e88e51-7e3d-4fbc-a7ed-3ab9adb2afea-global) in the IBM cloud catalog
 
 ### High availability clusters
 {: #highavailability-clusters}

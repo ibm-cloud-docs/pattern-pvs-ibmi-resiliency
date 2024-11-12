@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-11-07"
+lastupdated: "2024-11-12"
 
 subcollection: pattern-pvs-ibmi-resiliency
 
@@ -28,7 +28,7 @@ The requirements for the resiliency for {{site.data.keyword.powerSysFull}} IBM i
 
 Review the following backup method for a FalconStor StorSafe Virtual Tape Library: 
 
-FalconStor StorSafe Virtual Tape Library (VTL) is a software solution that optimizes backup and restore to improve performance and significantly reduce backup storage costs, all without requiring changes to the existing requirement. With its integrated deduplication, the solution removes redundant copies of data, reducing capacity requirements, decreasing storage costs, and minimizing replication and restore times. StorSafe VTL can be used with all leading backup solutions, and enables both hybrid and native-cloud backup, as well as both workload and tape migration to the cloud. StorSafe VTL also supports NFS and SMB interfaces in a NAS environment. AIX and Linux systems can use StorSafe as an NFS server for applications such as Oracle RMAN or SAP Hana Studio. Falconstor can be configured and ordered by using the [Falconstore tile](https://cloud.ibm.com/catalog/content/vtltile-tags-v10.03-01-f1e88e51-7e3d-4fbc-a7ed-3ab9adb2afea-global?catalog_query=aHR0cHM6Ly9jbG91ZC5pYm0uY29tL2NhdGFsb2c%2Fc2VhcmNoPWZhbGNvbnN0b3Ijc2VhcmNoX3Jlc3VsdHM%3D){: external} in the cloud catalog. 
+FalconStor StorSafe Virtual Tape Library (VTL) is a software solution that optimizes backup and restore to improve performance and significantly reduce backup storage costs, all without requiring changes to the existing requirement. With its integrated deduplication, the solution removes redundant copies of data, reducing capacity requirements, decreasing storage costs, and minimizing replication and restore times. StorSafe VTL can be used with all leading backup solutions, and enables both hybrid and native-cloud backup, as well as both workload and tape migration to the cloud. StorSafe VTL also supports NFS and SMB interfaces in a NAS environment. Falconstor can be configured and ordered by using the [Falconstore tile](https://cloud.ibm.com/catalog/content/vtltile-tags-v10.03-01-f1e88e51-7e3d-4fbc-a7ed-3ab9adb2afea-global?catalog_query=aHR0cHM6Ly9jbG91ZC5pYm0uY29tL2NhdGFsb2c%2Fc2VhcmNoPWZhbGNvbnN0b3Ijc2VhcmNoX3Jlc3VsdHM%3D){: external} in the cloud catalog. 
 
 For the Falconstor appliance setup, it's recommended to deploy two appliances: one in the production environment and another at the disaster recovery site. These two devices replicate with each other to prevent outages or data corruption at either location. If only a single Falconstor VTL is deployed, there is no disaster recovery protection for that appliance, which means a potential risk of losing all backups.
 
@@ -48,7 +48,7 @@ The {{site.data.keyword.powerSys_notm}} Resiliency on IBM i Pattern involves sev
 ## Compute considerations for disaster recovery
 {: #design-considerations-dr}
 
-{{site.data.keyword.IBM_notm}} Global Replication Service (GRS) is a powerful solution that provides asynchronous data replication for {{site.data.keyword.IBM_notm}}i, AIX, and Linux workloads. GRS helps ensure data resilience by replicating storage volumes from one {{site.data.keyword.IBM_notm}} data center to a geographically distant {{site.data.keyword.IBM_notm}} data center. It supports failover and failback mechanisms, allowing seamless transitions between primary and secondary sites.
+{{site.data.keyword.IBM_notm}} Global Replication Service (GRS) is a powerful solution that provides asynchronous data replication for {{site.data.keyword.IBM_notm}}i workloads. GRS helps ensure data resilience by replicating storage volumes from one {{site.data.keyword.IBM_notm}} data center to a geographically distant {{site.data.keyword.IBM_notm}} data center. It supports failover and failback mechanisms, allowing seamless transitions between primary and secondary sites.
 
 These are key considerations for a successful disaster recovery setup of Power Virtual Server workloads in the {{site.data.keyword.powerSys_notm}} resiliency pattern.
 
