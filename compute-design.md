@@ -54,7 +54,7 @@ These are key considerations for a successful disaster recovery setup of Power V
 
 - For this pattern, the chosen method involves deploying a secondary site by using Global Replication Service (GRS) as the replication mechanism. 
 
-- The requirements for the GRS control LPARS are at least one control LPAR (.25 cpu x 16 GB x300GB) per data center and per OS type. The control LPAR is responsible for managing GRS operations. It coordinates data sharing and replication across systems within the same SYSPLEX, a set of interconnected systems. The control LPAR helps ensure consistency, failover, and failback mechanisms during disaster recovery scenarios. It handles serialization, buffering, and metadata management for GRS-enabled datasets.
+- The requirements for the GRS control LPARS are at least one control LPAR (.25 cpu x 16 GB x300GB) per data center and per OS type. In the Global Replication Service for Power Virtual Server, the control LPAR is responsible for managing and orchestrating the replication process. It handles tasks such as creating and managing replication-enabled volumes, configuring volume groups, and performing lifecycle operations like failover and failback. The control LPAR ensures that the replication setup is properly maintained and that data is consistently replicated between the primary and secondary sites.
 
 - Use LPARS for Disaster Recovery Workloads at the secondary data center 
 
