@@ -75,8 +75,6 @@ node.
 ## Resiliency design considerations for disaster recovery
 {: #dr-design}
 
-Secondary data center with Global Replication Service (GRS) 
-
 The Power Systems Virtual Server service provides a Tier 2 99.95% SLA by default. When a Logical Partition (LPAR) has an outage within the service, it automatically attempts to restart that LPAR on a separate host. For a Tier 3 SLA of 99.99%, the workload is distributed across two data centers. Supporting a 1 hour RTO and 1 hour RPO, the solution that is described in this pattern includes:
 
 - A secondary data center
