@@ -75,7 +75,7 @@ PowerHA supports resource optimization high availability (ROHA) for IBM i instan
 
 The following figure shows a configuration that uses PowerHA Standard Edition.
 
-![Standard PHA](/images/standardpha.svg "Standard PHA Diagram"){: caption="Figure 2: Local PowerHA Architecture" caption-side="bottom"}{: external download="standardpha.svg"}
+![Standard PHA](/images/standardpha.svg "PowerHA geographic mirroring diagram"){: caption="Figure 2: PowerHA geographic mirroring architecture" caption-side="bottom"}{: external download="standardpha.svg"}
 
 In this configuration, both nodes have simultaneous access to the shared disks and own the same disk resources. There is no takeover of shared disks if a node leaves the cluster, since the peer node already has the shared volume group that is varied on.
 
