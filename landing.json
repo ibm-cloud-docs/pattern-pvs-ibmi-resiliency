@@ -1,0 +1,54 @@
+{
+  "version": 2,
+  "title": "Deploying Resilient Workloads on IBM Power Virtual Server for IBM i",
+  "introduction": "The deploying resilient IBM i workloads on IBM Power Virtual Server pattern deployment a multi-region solution that includes backup, high availability, and disaster recovery.",
+  "product_page": "https://www.ibm.com/products/power-virtual-server",
+  "deployment_url": "https://cloud.ibm.com/catalog/content/url/to/deploy",
+  "section_topics": {
+    "links": [
+      {
+        "title": "Welcome to deploying resiliency for IBM i on IBM Power Virtual Server",
+        "href": "/docs/pattern-pvs-ibmi-resiliency?topic=pattern-pvs-ibmi-resiliency-overview"
+      },
+      {
+        "title": "Reference Architecture",
+        "href": "/docs/pattern-pvs-ibmi-resiliency?topic=pattern-pvs-ibmi-resiliency-power-virtual-server-on-IBMi"
+      },
+      {
+        "title": "Compute Design",
+        "href": "/docs/pattern-pvs-ibmi-resiliency?topic=pattern-pvs-ibmi-resiliency-compute-design"
+      }
+    ]
+  },
+  "section_highlights": [
+    {
+      "title": "IBM Power Systems Virtual Server Guide for IBM i",
+      "description": "This redbook provides in-depth recommendations on deploying IBM i environments on Power Virtual Server",
+      "href": "https://www.redbooks.ibm.com/abstracts/sg248513.html",
+      "type": "redbook"
+    },
+    {
+      "title": "IBM Power Systems high availability and disaster recovery updates: Planning for a multicloud environment",
+      "description": "This IBM Redbook provides in-depth recommendations on how to deploy disaster recovery in a multicloud environment.",
+      "href": "https://www.redbooks.ibm.com/abstracts/redp5663.html",
+      "type": "redbook",
+      "recommended": true
+    }
+  ],
+  "section_architectures": [
+    {
+      "title": "IBM Power Virtual Server for IBM i reference architecture",
+      "href": "/docs/pattern-pvs-ibmi-resiliency?topic=pattern-pvs-ibmi-resiliency-power-virtual-server-on-IBMi",
+      "deployable": false
+    }
+  ],
+  "section_updates": {
+    "view_more": "/docs/overview?topic=overview-whatsnew",
+    "tiles": [
+      {
+        "date": "25 October 2024",
+        "title": "The deploying resilient IBM i workloads on IBM Power Systems pattern are available for users in the IBM Cloud catalog. "
+      }
+    ]
+  }
+}
