@@ -24,7 +24,7 @@ content-type: reference-architecture
 {{site.data.keyword.attribute-definition-list}}
 
 # {{site.data.keyword.powerSysFull}} resiliency on IBM i
-{: #power-virtual-server-on-IBMi}
+{: #power-virtual-server-on-ibmi}
 {: toc-content-type="reference-architecture"}
 {: toc-version="1.0"}
 
