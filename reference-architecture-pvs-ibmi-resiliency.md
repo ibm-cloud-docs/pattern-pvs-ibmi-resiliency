@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-11-12"
+lastupdated: "2024-11-15"
 
 subcollection: pattern-pvs-ibmi-resiliency
 
@@ -24,7 +24,7 @@ content-type: reference-architecture
 {{site.data.keyword.attribute-definition-list}}
 
 # {{site.data.keyword.powerSysFull}} resiliency on IBM i
-{: #power-virtual-server-on-IBM i}
+{: #power-virtual-server-on-IBMi}
 {: toc-content-type="reference-architecture"}
 {: toc-version="1.0"}
 
