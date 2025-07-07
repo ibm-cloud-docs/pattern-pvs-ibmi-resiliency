@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2024
-lastupdated: "2024-10-22"
+  years: 2025
+lastupdated: "2025-07-07"
 
 subcollection: pattern-pvs-ibmi-resiliency
 
@@ -44,11 +44,11 @@ It’s vital to monitor {{site.data.keyword.cloud_notm}} activity for changes an
 - The primary role of PowerHA SystemMirror for i in IBM i systems is to provide high availability (HA) and disaster recovery (DR) solutions.
 
 - FalconStor offers several alerting and monitoring features through its StorSight management console. These features include:
-  - Real-time data and visibility: Provides status, health, and integrity monitoring of servers and resources.
-  - Smart Rules, analytics, reports, and forecasts: Helps in proactive monitoring and issue prevention.
-  - Secure multi-tenancy with role-based administration: Ideal for Managed Service Providers (MSPs) offering backup-as-a-service.
-  - Single view of replication, deduplication, and retention: Offers a unified view across on-premises and cloud environments for hybrid cloud backup and recovery.
-  
+   - Real-time data and visibility: Provides status, health, and integrity monitoring of servers and resources.
+   - Smart Rules, analytics, reports, and forecasts: Helps in proactive monitoring and issue prevention.
+   - Secure multi-tenancy with role-based administration: Ideal for Managed Service Providers (MSPs) offering backup-as-a-service.
+   - Single view of replication, deduplication, and retention: Offers a unified view across on-premises and cloud environments for hybrid cloud backup and recovery.
+
   These features help optimize data protection, disaster recovery, high availability, and business continuity operations.
 
 - Alternatively, third-party software such as Splunk and Datadog can be integrated with {{site.data.keyword.cloud_notm}} to provide security monitoring, compliance reporting, and operational intelligence.
@@ -59,6 +59,4 @@ It’s vital to monitor {{site.data.keyword.cloud_notm}} activity for changes an
 Review the references for service management for {{site.data.keyword.powerSysFull}}:
 
 - [Monitoring metrics for {{site.data.keyword.powerSysFull}}](/docs/power-iaas?topic=power-iaas-monitor-sysdig)
-- [Activity tracker](/docs/power-iaas?topic=power-iaas-at-events)
-
-{{site.data.keyword.cloudaccesstraillong}} services are deprecated and will no longer be supported as of 30 March 2025. The replacement service, {{site.data.keyword.logs_full_notm}} is planned to be generally available late second quarter 2024. For more information, see [Getting started with {{site.data.keyword.logs_full_notm}}](/docs/cloud-logs?topic=cloud-logs-getting-started).{: important}
+- [Getting started with {{site.data.keyword.logs_full_notm}}](/docs/cloud-logs?topic=cloud-logs-getting-started)
