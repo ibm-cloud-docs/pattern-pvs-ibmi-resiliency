@@ -44,10 +44,10 @@ It’s vital to monitor {{site.data.keyword.cloud_notm}} activity for changes an
 - The primary role of PowerHA SystemMirror for i in IBM i systems is to provide high availability (HA) and disaster recovery (DR) solutions.
 
 - FalconStor offers several alerting and monitoring features through its StorSight management console. These features include:
-  - Real-time data and visibility: Provides status, health, and integrity monitoring of servers and resources.
-  - Smart Rules, analytics, reports, and forecasts: Helps in proactive monitoring and issue prevention.
-  - Secure multi-tenancy with role-based administration: Ideal for Managed Service Providers (MSPs) offering backup-as-a-service.
-  - Single view of replication, deduplication, and retention: Offers a unified view across on-premises and cloud environments for hybrid cloud backup and recovery.
+   - Real-time data and visibility: Provides status, health, and integrity monitoring of servers and resources.
+   - Smart Rules, analytics, reports, and forecasts: Helps in proactive monitoring and issue prevention.
+   - Secure multi-tenancy with role-based administration: Ideal for Managed Service Providers (MSPs) offering backup-as-a-service.
+   - Single view of replication, deduplication, and retention: Offers a unified view across on-premises and cloud environments for hybrid cloud backup and recovery.
 
   These features help optimize data protection, disaster recovery, high availability, and business continuity operations.
 
