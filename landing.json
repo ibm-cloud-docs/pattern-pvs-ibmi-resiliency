@@ -37,7 +37,7 @@
   "section_architectures": [
     {
       "title": "IBM Power Virtual Server for IBM i reference architecture",
-      "href": "/docs/pattern-pvs-ibmi-resiliency?topic=pattern-pvs-ibmi-resiliency-power-virtual-server-on-IBM",
+      "href": "/docs/pattern-pvs-ibmi-resiliency?topic=pattern-pvs-ibmi-resiliency-power-virtual-server-on-ibmi",
       "deployable": false
     }
   ],

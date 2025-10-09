@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2024
-lastupdated: "2024-11-12"
+  years: 2025
+lastupdated: "2025-10-09"
 
 subcollection: pattern-pvs-ibmi-resiliency
 
@@ -15,7 +15,7 @@ keywords:
 # Compute design
 {: #compute-design}
 
-{{site.data.keyword.powerSysFull}} provides infrastructure by using the latest virtual servers in the form of Logical Partitions (LPARS). An LPAR is a way of subdividing a computer’s resources, including memory, storage, and processors, into small logical units. These LPARs are available with various vCPU and RAM combinations, allowing users to define configurations that align with their specific use case requirements. 
+{{site.data.keyword.powerSysFull}} provides infrastructure by using the latest virtual servers in the form of Logical Partitions (LPARS). An LPAR is a way of subdividing a computer’s resources, including memory, storage, and processors, into small logical units. These LPARs are available with various vCPU and RAM combinations, allowing users to define configurations that align with their specific use case requirements.
 
 The requirements for the resiliency for {{site.data.keyword.powerSysFull}} IBM i workloads pattern focus on the following:
 
@@ -26,9 +26,9 @@ The requirements for the resiliency for {{site.data.keyword.powerSysFull}} IBM i
 ## Compute considerations for backups
 {: #design-considerations-backups}
 
-Review the following backup method for a FalconStor StorSafe Virtual Tape Library: 
+Review the following backup method for a FalconStor StorSafe Virtual Tape Library:
 
-FalconStor StorSafe Virtual Tape Library (VTL) is a software solution that optimizes backup and restore to improve performance and significantly reduce backup storage costs, all without requiring changes to the existing requirement. With its integrated deduplication, the solution removes redundant copies of data, reducing capacity requirements, decreasing storage costs, and minimizing replication and restore times. StorSafe VTL can be used with all leading backup solutions, and enables both hybrid and native-cloud backup, as well as both workload and tape migration to the cloud. StorSafe VTL also supports NFS and SMB interfaces in a NAS environment. Falconstor can be configured and ordered by using the [Falconstore tile](https://cloud.ibm.com/catalog/content/vtltile-tags-v10.03-01-f1e88e51-7e3d-4fbc-a7ed-3ab9adb2afea-global?catalog_query=aHR0cHM6Ly9jbG91ZC5pYm0uY29tL2NhdGFsb2c%2Fc2VhcmNoPWZhbGNvbnN0b3Ijc2VhcmNoX3Jlc3VsdHM%3D){: external} in the cloud catalog. 
+FalconStor StorSafe Virtual Tape Library (VTL) is a software solution that optimizes backup and restore to improve performance and significantly reduce backup storage costs, all without requiring changes to the existing requirement. With its integrated deduplication, the solution removes redundant copies of data, reducing capacity requirements, decreasing storage costs, and minimizing replication and restore times. StorSafe VTL can be used with all leading backup solutions, and enables both hybrid and native-cloud backup, as well as both workload and tape migration to the cloud. StorSafe VTL also supports NFS and SMB interfaces in a NAS environment. Falconstor can be configured and ordered by using the [Falconstore tile](https://cloud.ibm.com/catalog/content/vtltile-tags-v10.03-01-f1e88e51-7e3d-4fbc-a7ed-3ab9adb2afea-global?catalog_query=aHR0cHM6Ly9jbG91ZC5pYm0uY29tL2NhdGFsb2c%2Fc2VhcmNoPWZhbGNvbnN0b3Ijc2VhcmNoX3Jlc3VsdHM%3D){: external} in the cloud catalog.
 
 For the Falconstor appliance setup, it's recommended to deploy two appliances: one in the production environment and another at the disaster recovery site. These two devices replicate with each other to prevent outages or data corruption at either location. If only a single Falconstor VTL is deployed, there is no disaster recovery protection for that appliance, which means a potential risk of losing all backups.
 
@@ -39,9 +39,9 @@ PowerHA SystemMirror for i is an IBM high availability and disaster recovery sol
 
 The {{site.data.keyword.powerSys_notm}} Resiliency on IBM i Pattern involves several compute considerations that must be addressed for high availability. These considerations are essential for helping ensure a robust and reliable system.
 
-- {{site.data.keyword.IBM_notm}} PowerHA SystemMirror allows the failover of 2 IBMi LPARs connected to 2 Indepenpendant Auxillary Storage Pools (IASP). 
+- {{site.data.keyword.IBM_notm}} PowerHA SystemMirror allows the failover of 2 IBMi LPARs connected to 2 Indepenpendant Auxillary Storage Pools (IASP).
 
-- If one LPAR fails, the second LPAR would seamlessly assume the primary role, helping ensure uninterrupted system functions. 
+- If one LPAR fails, the second LPAR would seamlessly assume the primary role, helping ensure uninterrupted system functions.
 
 - This method offers adequate LPAR compute for clustered IBM i LPARs in one {{site.data.keyword.cloud_notm}} data center for local high availability.
 
@@ -52,11 +52,11 @@ The {{site.data.keyword.powerSys_notm}} Resiliency on IBM i Pattern involves sev
 
 These are key considerations for a successful disaster recovery setup of Power Virtual Server workloads in the {{site.data.keyword.powerSys_notm}} resiliency pattern.
 
-- For this pattern, the chosen method involves deploying a secondary site by using Global Replication Service (GRS) as the replication mechanism. 
+- For this pattern, the chosen method involves deploying a secondary site by using Global Replication Service (GRS) as the replication mechanism.
 
 - The requirements for the GRS control LPARS are at least one control LPAR (.25 cpu x 16 GB x300GB) per data center and per OS type. In the Global Replication Service for Power Virtual Server, the control LPAR is responsible for managing and orchestrating the replication process. It handles tasks such as creating and managing replication-enabled volumes, configuring volume groups, and performing lifecycle operations like failover and failback. The control LPAR ensures that the replication setup is properly maintained and that data is consistently replicated between the primary and secondary sites.
 
-- Use LPARS for Disaster Recovery Workloads at the secondary data center 
+- Use LPARS for Disaster Recovery Workloads at the secondary data center
 
 - Help ensure sufficient LPAR provisioning in the recovery location to support replicas of critical workloads if a disaster occurs.
 
@@ -70,4 +70,4 @@ These are key considerations for a successful disaster recovery setup of Power V
 
 - Optimize the shared processor pool costs by paying for compute capacity when needed.
 
-The shared processor pool (SPP) reserves only compute capacity, not the memory. For more information, see [The shared processor pool](/docs/power-iaas?topic=power-iaas-manage-SPP) and in [Managing shared processor pools](https://www.ibm.com/docs/en/power9?topic=systems-managing-shared-processor-pools){: external}. For more information on the Global Replication Service, see [GRS](/docs/power-iaas?topic=power-iaas-getting-started-GRS)
+The shared processor pool (SPP) reserves only compute capacity, not the memory. For more information, see [The shared processor pool](/docs/power-iaas?topic=power-iaas-manage-SPP) and in [Managing shared processor pools](https://www.ibm.com/docs/en/power10/9786-22H?topic=systems-managing-shared-processor-pools){: external}. For more information on the Global Replication Service, see [GRS](/docs/power-iaas?topic=power-iaas-getting-started-GRS)
