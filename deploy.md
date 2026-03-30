@@ -74,7 +74,7 @@ We do not need the VPC schematics ID as we are going to use our own VPC with its
 
 1. Create a PowerVS workspace within a single Availability Zone
 
-Make sure that the workspace is PER enabled.
+    - Make sure that the workspace is PER enabled.
 
 2. Create Server Placement Groups
 
@@ -85,7 +85,6 @@ Make sure that the workspace is PER enabled.
 
 3. Create Two IBM i LPARs using the Colocation Policy and configure them for PowerHA clustering.
 
-
     - Make sure that PowerHA is selected at the IBM i Licenses when creating the IBM i LPARs.
     - Create shared storage volumes, that will be placed in IASP.
     - In the Create Volume menu, make sure that the Shareable flag is ON.
@@ -93,7 +92,7 @@ Make sure that the workspace is PER enabled.
 
 4. Summary:
 
-We have now two IBM i LPARs created on two different Power servers, with Shared storage.
+    - We have now two IBM i LPARs created on two different Power servers, with Shared storage.
 
 ### Deploying IBM i High Availability with Enhanced edition PowerHA with GeoMirror
 {: #deploy-ha-geomirror}
