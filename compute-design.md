@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2025
-lastupdated: "2025-10-09"
+  years: 2026
+lastupdated: "2026-03-30"
 
 subcollection: pattern-pvs-ibmi-resiliency
 
@@ -15,7 +15,7 @@ keywords:
 # Compute design
 {: #compute-design}
 
-{{site.data.keyword.powerSysFull}} provides infrastructure by using the latest virtual servers in the form of Logical Partitions (LPARS). An LPAR is a way of subdividing a computer’s resources, including memory, storage, and processors, into small logical units. These LPARs are available with various vCPU and RAM combinations, allowing users to define configurations that align with their specific use case requirements.
+{{site.data.keyword.powerSysFull}} provides infrastructure by using the latest virtual servers in the form of Logical Partitions (LPARS). An LPAR is a way of subdividing a computer’s resources, including memory, storage, and processors, into small logical units. These LPARs are available with various Entitled CPU, vCPU and RAM combinations, allowing users to define configurations that align with their specific use case requirements.
 
 The requirements for the resiliency for {{site.data.keyword.powerSysFull}} IBM i workloads pattern focus on the following:
 
@@ -26,9 +26,9 @@ The requirements for the resiliency for {{site.data.keyword.powerSysFull}} IBM i
 ## Compute considerations for backups
 {: #design-considerations-backups}
 
-Review the following backup method for a FalconStor StorSafe Virtual Tape Library:
+Falconstor VTL solution for larger enterprise workloads:
 
-FalconStor StorSafe Virtual Tape Library (VTL) is a software solution that optimizes backup and restore to improve performance and significantly reduce backup storage costs, all without requiring changes to the existing requirement. With its integrated deduplication, the solution removes redundant copies of data, reducing capacity requirements, decreasing storage costs, and minimizing replication and restore times. StorSafe VTL can be used with all leading backup solutions, and enables both hybrid and native-cloud backup, as well as both workload and tape migration to the cloud. StorSafe VTL also supports NFS and SMB interfaces in a NAS environment. Falconstor can be configured and ordered by using the [Falconstore tile](https://cloud.ibm.com/catalog/content/vtltile-tags-v10.03-01-f1e88e51-7e3d-4fbc-a7ed-3ab9adb2afea-global?catalog_query=aHR0cHM6Ly9jbG91ZC5pYm0uY29tL2NhdGFsb2c%2Fc2VhcmNoPWZhbGNvbnN0b3Ijc2VhcmNoX3Jlc3VsdHM%3D){: external} in the cloud catalog.
+FalconStor StorSafe Virtual Tape Library (VTL) is a software solution that optimizes backup and restore to improve performance and significantly reduce backup storage size. With its integrated deduplication, the solution removes redundant copies of data, reducing capacity requirements, decreasing storage costs, and minimizing replication and restore times. StorSafe VTL can be used with all leading backup solutions, and enables both hybrid and native-cloud backup, as well as both workload and tape migration to the cloud. StorSafe VTL also supports NFS and SMB interfaces in a NAS environment. Falconstor can be configured and ordered by using the [Falconstore tile](https://cloud.ibm.com/catalog/content/vtltile-tags-v10.03-01-f1e88e51-7e3d-4fbc-a7ed-3ab9adb2afea-global?catalog_query=aHR0cHM6Ly9jbG91ZC5pYm0uY29tL2NhdGFsb2c%2Fc2VhcmNoPWZhbGNvbnN0b3Ijc2VhcmNoX3Jlc3VsdHM%3D){: external} in the cloud catalog.
 
 For the Falconstor appliance setup, it's recommended to deploy two appliances: one in the production environment and another at the disaster recovery site. These two devices replicate with each other to prevent outages or data corruption at either location. If only a single Falconstor VTL is deployed, there is no disaster recovery protection for that appliance, which means a potential risk of losing all backups.
 
@@ -48,15 +48,15 @@ The {{site.data.keyword.powerSys_notm}} Resiliency on IBM i Pattern involves sev
 ## Compute considerations for disaster recovery
 {: #design-considerations-dr}
 
-{{site.data.keyword.IBM_notm}} Global Replication Service (GRS) is a powerful solution that provides asynchronous data replication for {{site.data.keyword.IBM_notm}}i workloads. GRS helps ensure data resilience by replicating storage volumes from one {{site.data.keyword.IBM_notm}} data center to a geographically distant {{site.data.keyword.IBM_notm}} data center. It supports failover and failback mechanisms, allowing seamless transitions between primary and secondary sites.
+{{site.data.keyword.IBM_notm}} Global Replication Service (GRS) is a powerful solution that provides asynchronous data replication for {{site.data.keyword.IBM_notm}}i workloads. GRS helps ensure data resilience by replicating storage volumes from one {{site.data.keyword.IBM_notm}} data center to a geographically distant {{site.data.keyword.IBM_notm}} data center. It supports failover and failback mechanisms, allowing transitions between primary and secondary sites. GRS LPARs can be configured to be able to manually switch between Primary and Secondary Regions or can be configured with Disaster Recovery Automation (DRA), that automates the LPAR failover.
 
 These are key considerations for a successful disaster recovery setup of Power Virtual Server workloads in the {{site.data.keyword.powerSys_notm}} resiliency pattern.
 
-- For this pattern, the chosen method involves deploying a secondary site by using Global Replication Service (GRS) as the replication mechanism.
-
-- The requirements for the GRS control LPARS are at least one control LPAR (.25 cpu x 16 GB x300GB) per data center and per OS type. In the Global Replication Service for Power Virtual Server, the control LPAR is responsible for managing and orchestrating the replication process. It handles tasks such as creating and managing replication-enabled volumes, configuring volume groups, and performing lifecycle operations like failover and failback. The control LPAR ensures that the replication setup is properly maintained and that data is consistently replicated between the primary and secondary sites.
+- For this pattern, the chosen method involves deploying a secondary site by using Global Replication Service (GRS) as the replication mechanism, the pattern covers both manual and automated GRS implementation.
 
 - Use LPARS for Disaster Recovery Workloads at the secondary data center
+
+- Use ksys orchestrator LPARs (multiple if highly-available ksys nodes are planned) for Disaster Recovery Automation. Minimum resources for a ksys AIX LPAR: 0.5 ent CPU, 1 VCPU, 4GB RAM, 20GB Storage.
 
 - Help ensure sufficient LPAR provisioning in the recovery location to support replicas of critical workloads if a disaster occurs.
 

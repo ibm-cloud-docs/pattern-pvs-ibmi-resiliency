@@ -32,6 +32,8 @@ It's important to validate what offerings are available in the regions you are d
 ## Resiliency design considerations for backup
 {: #backup-considerations}
 
+Backup with Virtual Tape Library
+
 FalconStor Virtual Tape Library (VTL) is an optimized backup and deduplication solution that provides tape library emulation, high-speed backup or restore, data archival to supported S3 clouds for long-term storage, global data deduplication, enterprise-wide replication, and long-term cloud-based container archive, without requiring changes to the existing environment. The backup offering VPC and the {{site.data.keyword.powerSys_notm}} workspaces should be in the same region and connected by using the local Transit Gateway. For more Information, see [Managing a Virtual Tape Library](/docs/power-iaas?topic=power-iaas-manage-vtl).
 
 Review key considerations and benefits when deploying the Falconstor VTL solution:
@@ -52,10 +54,22 @@ This third-party product is provided by a vendor outside of {{site.data.keyword.
 
 For sizing and configuration information, contact [FalconStor VTL Support](https://www.falconstor.com/support/technical-support){: external}. For more information about the methods, see [FalconStor VTL summary](https://cloud.ibm.com/catalog/content/vtltile-tags-v10.03-01-f1e88e51-7e3d-4fbc-a7ed-3ab9adb2afea-global#about){: external}. The Falconstor sizing calculator can be found by going to [IBM Power Sizing Calculator](https://www.falconstor.com/sizing-calculator/?source=ibm){: external}. For additional information, review the [falconstor deployment guide](https://falconstor-download.s3.us-east.cloud-object-storage.appdomain.cloud/FalconStor%20VTL%20for%20IBM%20Deployment%20Guide.pdf){: external}.
 
+Backup with BRMS to ICOS
+
+IBM Backup, Recovery and Media Services (BRMS) for i cloud support provides an additional data storage option directly within the BRMS interface. When used together with IBM Cloud Storage Solutions for i (5733-ICC), BRMS can utilize cloud technology as part of a broader IT cloud strategy. Cloud support is included as a standard feature of the BRMS product
+
+Backup an IBM i LPAR with Instance Snapshot
+
+PowerVS LPARs can be backed up by using Instance Snapshot utility of a PowerVS workspace. The snapshot than can be used to restore the LPAR that it was taken from.
+
+Backup an IBM i LPAR with Capture and Export to ICOS
+
+Capture and Export utility can be used to save the IBM i into a COS bucket. The Capture and Export creates a bootable image of the operating systems and saves data volumes into the bucket. The image can be used to restore or clone the LPAR.
+
 ## Resiliency design considerations for high availability
 {: #ha-considerations}
 
-The local operating system high availability method is IBM PowerHA SystemMirror for i.
+The local (within one Region) operating system high availability method is IBM PowerHA SystemMirror for i.
 
 By default, {{site.data.keyword.powerSys_notm}}s are restarted on a different host system if a hardware failure occurs. IBM PowerHA SystemMirror for i provides local clustering for mission-critical workloads. The clustering infrastructure allows you to create and manage multiple systems and system resources as a unified entity. Shared resources enable the cluster to continuously provide essential services to users and applications. Key PowerHA Cluster Functions include heartbeat monitoring for failure detection, activation and release of highly available services IPs, automatic activation of geographically mirrored volume groups, and start/stop/monitor of applications. Failover resource groups can move between cluster members and sites. For more information on PowerHA, see [high availability and disaster recovery](/docs/power-iaas?topic=power-iaas-ha-dr).
 
@@ -63,7 +77,7 @@ The following figure shows a configuration that uses IBM PowerHA SystemMirror fo
 
 ![Standard PHA](/images/standardpha.svg "PowerHA geographic mirroring diagram"){: caption="Figure 2: PowerHA geographic mirroring architecture" caption-side="bottom"}{: external download="standardpha.svg"}
 
-- Geographic mirroring refers to the IBM i host-based replication solution that is provided as a function of IBM PowerHA SystemMirror for i. 
+- Geographic mirroring refers to the IBM i host-based replication solution that is provided as a function of IBM PowerHA SystemMirror for i.
 - Geographic mirroring is managed by IBM i storage management so that replication is performed on a disk page segment basis. When a page of data is written, storage management automatically manages the replication of this page to the remote system.
 - Geographic mirroring requires a two-node clustered environment and uses data port services. These data port services are provided by the System Licensed Internal Code (SLIC) to support the transfer of large volumes of data between a source node and a target node.
 
@@ -80,8 +94,8 @@ The GRS involves two sites, over 300 km apart, where storage replication is enab
 
 Review the key capabilities for disaster recovery design considerations:
 
-- Volume-based async storage replication that uses Consistency Groups (CG).
-- CG Services to create and delete CGs, add and remove volumes, stop and start, and so on.
+- Volume-based async storage replication that uses Volume Replication Groups (VRG).
+- VRG Services to create and delete VRGs, add and remove volumes, stop and start, and so on.
 - Volume services to create, delete, and retype enabled to support mirrored volumes.
 - Virtual machines services to deploy, delete, attach, detach, clone, and snapshot for mirrored volumes.
 
@@ -105,6 +119,10 @@ Consider the {{site.data.keyword.IBM_notm}} toolkit for IBM i from {{site.data.k
 
 - Validate [data center pairings](/docs/power-iaas?topic=power-iaas-getting-started-GRS) available for global replication service.
 
-The following image illustrates the use of GRS as the DR solution between two cloud data centers. 
-
 ![GRS](/images/grs.svg "GRS Diagram"){: caption="Figure 3: GRS Architecture" caption-side="bottom"}{: external download="grs.svg"}
+
+As an alternative to GRS and toolkit for IBM i, the GRS can be used without any automation to perform manual takeovers, where the administrator needs to initiate the takeover using Cloud GUI operations and Cloud CLI commands.
+Additionally, IBM Cloud offers a feature called Disaster Recovery Automation (DRA), that can automate LPAR failovers.
+For more information: [DRA Documentation](https://cloud.ibm.com/docs/dr-automation-powervs?topic=dr-automation-powervs-getting-started)
+
+The following image illustrates the use of GRS as the DR solution between two cloud data centers.

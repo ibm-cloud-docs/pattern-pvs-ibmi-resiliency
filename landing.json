@@ -2,7 +2,7 @@
   "version": 2,
   "title": "Deploying Resilient Workloads on IBM Power Virtual Server for IBM i",
   "introduction": "The deploying resilient IBM i workloads on IBM Power Virtual Server pattern deployment a multi-region solution that includes backup, high availability, and disaster recovery.",
-  "product_page": "https://www.ibm.com/products/power-virtual-server",
+  "product_page": "https://www.ibm.com/new/announcements/red-hat-openshift-virtualization-is-now-available-on-ibm-cloud2",
   "section_topics": {
     "links": [
       {
@@ -16,6 +16,10 @@
       {
         "title": "Compute Design",
         "href": "/docs/pattern-pvs-ibmi-resiliency?topic=pattern-pvs-ibmi-resiliency-compute-design"
+      },
+      {
+        "title": "Deployment Guide",
+        "href": "/docs/pattern-pvs-ibmi-resiliency?topic=pattern-pvs-ibmi-resiliency-deploy"
       }
     ]
   },

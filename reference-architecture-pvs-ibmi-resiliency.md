@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2024
-lastupdated: "2024-11-15"
+  years: 2026
+lastupdated: "2026-03-30"
 
 subcollection: pattern-pvs-ibmi-resiliency
 
@@ -11,7 +11,7 @@ keywords:
 authors:
 - name: Jose Ocasio and Anne Mcdermaid
 
-version: 1.0
+version: 1.1
 
 deployment-url:
 
@@ -26,7 +26,7 @@ content-type: reference-architecture
 # {{site.data.keyword.powerSysFull}} resiliency on IBM i
 {: #power-virtual-server-on-ibmi}
 {: toc-content-type="reference-architecture"}
-{: toc-version="1.0"}
+{: toc-version="1.1"}
 
 This is a baseline solution pattern containing the design and architecture decisions for a PowerVS resiliency solution for IBM i workloads to meet common requirements as described in this use case. Actual solutions depend on the specific requirements that are set by the client. Review the following summary of the use case for this reference architecture:
 
@@ -43,12 +43,12 @@ Review the environments that are related to this reference architecture:
 2. The direct link then connects to a Local Transit Gateway. This advertises and routes on-premises traffic to VPC for gateway or firewall inspection.
 3. The transit gateway connects to management VPC, which hosts your Next-Generation Firewall, management subnets for your bastion hosts, and your Virtual Private Endpoint.
 4. Falconstor Storsight VSI is deployed as a monitoring dashboard for the backup solution.
-5. A Virtual Private Endpoint is deployed to communicate from the falconstor appliance to the Cloud Services Layer: Cloud Object storage. 
+5. A Virtual Private Endpoint is deployed to communicate from the falconstor appliance to the Cloud Services Layer: Cloud Object storage.
 6. PowerVS workspace is deployed within the {{site.data.keyword.powerSysFull}} environment and connects to the Power Edge Router (PER).
-7. A local Power high availability standard cluster is then deployed within the workspace to provide local clustering. It is utilizing PowerHA SystemMirror for i as the software and geographic mirroring as the replication method. 
+7. A local Power high availability standard cluster is then deployed within the workspace to provide local clustering. It is utilizing PowerHA SystemMirror for i as the software and geographic mirroring as the replication method.
 8. The management and workload VPC mentioned from the primary site is also deployed in disaster recovery.
 9. Global Replication Service (GRS) is deployed as part of Disaster Recovery Storage Area Network to Storage Area Network replication.
-10. There is a GRS controller Logical Partition that is deployed at both the primary and the disaster recovery (DR) site.
+10. There is a ksys orchestrator Logical Partition that is deployed at the disaster recovery (DR) site.
 11. Communication for GRS SAN to SAN traffic between sites occurs over the {{site.data.keyword.IBM_notm}} private backbone.
 12. Replication of the controller Logical Partitions occurs over the Global Transit gateway.
 
@@ -82,7 +82,7 @@ Following the Architecture Design Framework, Resiliency for PowerVS covers desig
 | Storage            | Provide storage to support replication activities. Provide storage to support customer retention schedules.                                                                                                                                                                                       |
 | Networking         | Provide enterprise to cloud network connectivity to recovery site. Provide private connectivity between workloads across protected and recovery sites. Deploy workloads in an isolated environment and enforce information flow policies. Provide BYOIP, Edge Routing, VLAN segmentation and DNS |
 | Security           | Help ensure data encryption at rest and in transit for the storage layer. Protect the boundaries of the application against denial-of-service and application-layer attacks.                                                                                                                           |
-| Resiliency         | Provide local OS level high availability between two IBM i LPARs. Provide backups for data retention for IBM i workloads. Recovery Time Objective (RTO) and Recovery Point Objective(/RPO) = 1 hours/1 hours.  99.99% Infrastructure Availability                                                     |
+| Resiliency         | Provide local (within the same AZ or between two AZs in the same Region) OS level high availability between two IBM i LPARs. Provide backups for data retention for IBM i workloads. Recovery Time Objective (RTO) and Recovery Point Objective(/RPO) = 1 hours/1 hours.  99.99% Infrastructure Availability                                                     |
 | Service Management | Monitor the usage and performance of the resiliency components                                                                                                                                                                                                                                    |
 {: caption="Resiliency for PowerVS requirements" caption-side="bottom"}
 
@@ -107,5 +107,6 @@ Following the Architecture Design Framework, Resiliency for PowerVS covers desig
 | Resiliency         | FalconStor StorSafe VTL                                                                                        | Backups for IBM i workloads                                                                                                           |
 |                    | PowerHA SystemMirror for i                                                                                                              | Local OS level between two LPARS                                                                                                    |
 |                    | Global Replication Service and {{site.data.keyword.IBM_notm}} Toolkit for IBM i Full System Replication                                                      | SAN to SAN replication between two {{site.data.keyword.cloud_notm}} data centers                                                                           |
+|                    | Disaster Recovery Automation with Global Replication Service                                              |SAN to SAN replication between two data centers and automated failover handled by ksys orchestrator LPAR(s)|
 | Service Management | {{site.data.keyword.logs_full_notm}} {{site.data.keyword.monitoringlong_notm}}                                                | Apps, Audit, and operational logs monitor platform metrics                                                                          |
 {: caption="Resiliency for PowerVS components" caption-side="bottom"}
