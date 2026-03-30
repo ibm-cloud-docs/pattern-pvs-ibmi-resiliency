@@ -26,7 +26,7 @@ content-type: reference-architecture
 # {{site.data.keyword.powerSysFull}} resiliency on IBM i
 {: #power-virtual-server-on-ibmi}
 {: toc-content-type="reference-architecture"}
-{: toc-version="1.0"}
+{: toc-version="1.1"}
 
 This is a baseline solution pattern containing the design and architecture decisions for a PowerVS resiliency solution for IBM i workloads to meet common requirements as described in this use case. Actual solutions depend on the specific requirements that are set by the client. Review the following summary of the use case for this reference architecture:
 
