@@ -11,7 +11,7 @@ keywords:
 authors:
 - name: Jose Ocasio and Anne Mcdermaid
 
-version: 1.0
+version: 1.1
 
 deployment-url:
 
